@@ -106,7 +106,7 @@ const Home = () => {
               <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-indigo-500 rounded-full transform -translate-x-3 translate-y-3 -rotate-6"></div>
               <div className="relative rounded-full overflow-hidden border-4 border-white shadow-xl">
                 <img
-                  src="src/images/rajan-gupta.jpg"
+                  src="/images/rajan-gupta.jpg"
                   alt="Rajan Kumar Gupta"
                   className="w-full h-auto object-cover"
                   loading="lazy"

@@ -23,28 +23,28 @@ const About = () => {
           >
             <div className="relative group">
               <img
-                src="/src/images/code1.jpg"
+                src="/images/code1.jpg"
                 alt="Personal photo 1"
                 className="rounded-lg shadow-md transform transition-transform group-hover:scale-105"
               />
             </div>
             <div className="relative group mt-8">
               <img
-                src="/src/images/laptop1.jpg"
+                src="/images/laptop1.jpg"
                 alt="Personal photo 2"
                 className="rounded-lg shadow-md transform transition-transform group-hover:scale-105"
               />
             </div>
             <div className="relative group">
               <img
-                src="/src/images/hardwar1.jpg"
+                src="/images/hardwar1.jpg"
                 alt="Personal photo 3"
                 className="rounded-lg shadow-md transform transition-transform group-hover:scale-105"
               />
             </div>
             <div className="relative group">
               <img
-                src="/src/images/cup1.jpg"
+                src="/images/cup1.jpg"
                 alt="Personal photo 4"
                 className="rounded-lg shadow-md transform transition-transform group-hover:scale-105"
               />
