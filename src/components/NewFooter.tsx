@@ -3,9 +3,7 @@ import { Github, Linkedin, Twitter, Mail, Phone, MapPin, Facebook } from 'lucide
 const Footer = () => {
   return (
     <footer className="bg-gray-900 text-gray-300">
-        <div className="bg-red-600 text-white text-center py-2">
-        🚀 LATEST VERSION DEPLOYEDs - {new Date().toISOString()}
-      </div>
+      
       <div className="container mx-auto px-4">
         {/* Top Footer Section */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 py-">

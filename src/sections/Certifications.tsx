@@ -22,9 +22,9 @@ const certifications: CertificationType[] = [
     link: "/certificate/typescript-certificate.pdf",
   },
   {
-    id: "azure-cert",
-    title: "Azure Fundamentals",
-    issuer: "Microsoft Azure",
+    id: " MERN Stack",
+    title: "MERN Stack",
+    issuer: "Digital Pathshala",
     issueDate: "May 2023",
     expiryDate: undefined,
     logo: "https://placehold.co/64x64",

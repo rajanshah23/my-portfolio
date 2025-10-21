@@ -49,7 +49,7 @@ const Sidebar = ({ activeSection }: SidebarProps) => {
       <div className="p-4 border-t border-gray-200">
         <div className="flex items-center space-x-3">
           <img
-            src="/src/images/rajan-gupta.jpg"
+            src="/images/rajan-gupta.jpg"
             alt="Rajan Kumar Gupta"
             className="w-10 h-10 rounded-full object-cover"
           />
