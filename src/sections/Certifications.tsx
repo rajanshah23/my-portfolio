@@ -25,11 +25,11 @@ const certifications: CertificationType[] = [
     id: " MERN Stack",
     title: "MERN Stack",
     issuer: "Digital Pathshala",
-    issueDate: "May 2023",
+    issueDate: "May 5 2025",
     expiryDate: undefined,
-    logo: "https://placehold.co/64x64",
+    logo: "https://wallpaperaccess.com/full/9445603.jpg",
     color: "purple",
-    link: "#",
+    link: "/certificate/Experience Certificate.pdf",
   },
 ];
 
