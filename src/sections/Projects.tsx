@@ -17,10 +17,10 @@ const projects: ProjectType[] = [
     screenshots: [
       "/screenshots/Home.png",
       "/screenshots/FeaturedShow.png",
-      "/screenshots/StayUpdated.png", 
-      "/screenshots/BrowseShow.png",
-      "/screenshots/MyBooking.png",
-      "/screenshots/BookTicket.png",
+      "/screenshots/Stayupdated.png", 
+      "/screenshots/Browseshow.png",
+      "/screenshots/Mybooking.png",
+      "/screenshots/Bookticket.png",
     ],
     features: [
       "Real-time seat availability tracking",
