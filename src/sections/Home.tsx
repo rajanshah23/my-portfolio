@@ -93,7 +93,7 @@ const Home = () => {
               
               <a
                 href="/Rajan_Kumar_Gupta_CV.pdf"  
-                download="RajanKumarGupta_CV.pdf"
+                download="Rajan_Kumar_Gupta_CV.pdf"
                 className="px-6 py-2 sm:px-8 sm:py-3 bg-blue-600 text-white rounded-full hover:bg-gray-900 transition-all text-sm sm:text-base"
               >
                 Download CV
