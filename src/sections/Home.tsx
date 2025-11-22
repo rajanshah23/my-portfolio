@@ -10,6 +10,7 @@ const Home = () => {
       "Electronics, Communication and Information Engineer",
       "MERN Stack Developer",
       "Problem Solver",
+      "Backend Developer"
     ],
     []
   );
@@ -61,7 +62,7 @@ const Home = () => {
               </span>
             </h1>
 
-            <div className="text-lg sm:text-xl lg:text-2xl text-gray-600 mb-6 lg:mb-8 min-h-8 flex justify-center lg:justify-start items-center">
+            <div className="text-lg sm:text-xl lg:text-2xl text-gray-900 mb-6 lg:mb-8 min-h-8 flex justify-center lg:justify-start items-center">
               <span className="typed">{typedText}</span>
               <span
                 className={`inline-block w-0.5 h-6 bg-blue-600 ml-1 ${

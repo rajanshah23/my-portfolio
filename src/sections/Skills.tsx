@@ -1,4 +1,3 @@
- import React from "react";
 import {
   SiJavascript, SiTypescript, SiPython, SiC,
   SiReact, SiNextdotjs, SiHtml5, SiCss3, SiTailwindcss,
@@ -8,7 +7,6 @@ import {
   SiTensorflow, SiOpencv,
 } from "react-icons/si";
 
-// All skills with icons and names
 const skills = [
   { icon: <SiJavascript size={40} color="#F7DF1E" />, name: "JavaScript" },
   { icon: <SiTypescript size={40} color="#3178C6" />, name: "TypeScript" },
@@ -23,7 +21,6 @@ const skills = [
   { icon: <SiExpress size={40} color="black" />, name: "Express" },
   { icon: <SiDjango size={40} color="#092E20" />, name: "Django" },
   { icon: <SiFlask size={40} color="black" />, name: "Flask" },
-
   { icon: <SiPostgresql size={40} color="#4169E1" />, name: "PostgreSQL" },
   { icon: <SiSupabase size={40} color="#3ECF8E" />, name: "Supabase" },
   { icon: <SiMongodb size={40} color="#47A248" />, name: "MongoDB" },
@@ -41,30 +38,45 @@ const skills = [
 ];
 
 const SkillsTwoRows = () => {
-  // Split skills into two rows of 13 each
   const row1 = skills.slice(0, 13);
   const row2 = skills.slice(13, 26);
 
   return (
-    <section id="skills" className="py-16 px-4">
-      <h2 className="text-3xl font-bold text-center mb-10">Technical Skills</h2>
+    <section id="skills" className="py-16 px-4 bg-gradient-to-b from-gray-50 to-white">
+      <h2 className="text-4xl font-bold text-center mb-16 ">
+        Technical Skills
+      </h2>
 
       {/* First row */}
-      <div className="flex flex-wrap justify-center gap-4 mb-8">
+      <div className="flex flex-wrap justify-center gap-6 mb-8">
         {row1.map((skill, idx) => (
-          <div key={idx} className="flex flex-col items-center w-20 sm:w-24 md:w-28">
-            {skill.icon}
-            <span className="mt-2 text-sm text-gray-900 text-center">{skill.name}</span>
+          <div
+            key={idx}
+            className="group flex flex-col items-center w-20 sm:w-24 md:w-28 p-4 rounded-xl bg-white shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 cursor-pointer border border-gray-100"
+          >
+            <div className="transform group-hover:scale-110 transition-transform duration-300">
+              {skill.icon}
+            </div>
+            <span className="mt-3 text-sm font-medium text-gray-700 text-center group-hover:text-blue-600 transition-colors duration-300">
+              {skill.name}
+            </span>
           </div>
         ))}
       </div>
 
       {/* Second row */}
-      <div className="flex justify-center gap-8">
+      <div className="flex flex-wrap justify-center gap-6">
         {row2.map((skill, idx) => (
-          <div key={idx} className="flex flex-col items-center">
-            {skill.icon}
-            <span className="mt-2 text-sm text-gray-700">{skill.name}</span>
+          <div
+            key={idx}
+            className="group flex flex-col items-center w-20 sm:w-24 md:w-28 p-4 rounded-xl bg-white shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 cursor-pointer border border-gray-100"
+          >
+            <div className="transform group-hover:scale-110 transition-transform duration-300">
+              {skill.icon}
+            </div>
+            <span className="mt-3 text-sm font-medium text-gray-700 text-center group-hover:text-blue-600 transition-colors duration-300">
+              {skill.name}
+            </span>
           </div>
         ))}
       </div>
@@ -73,5 +85,3 @@ const SkillsTwoRows = () => {
 };
 
 export default SkillsTwoRows;
-
- 
