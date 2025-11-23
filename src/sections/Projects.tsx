@@ -17,7 +17,7 @@ const projects: ProjectType[] = [
     screenshots: [
       "/screenshots/Home.png",
       "/screenshots/FeaturedShow.png",
-      "/screenshots/Stayupdated.png", 
+      "/screenshots/Stayupdated.png",
       "/screenshots/Browseshow.png",
       "/screenshots/Mybooking.png",
       "/screenshots/Bookticket.png",
@@ -31,14 +31,14 @@ const projects: ProjectType[] = [
     ],
     technicalDetails: [
       "Frontend: React, Redux, Tailwind CSS",
-      "Backend: Node.js, Express, Sequelize", 
+      "Backend: Node.js, Express, Sequelize",
       "Database: PostgreSQL (Supabase)",
       "Authentication: JWT + Supabase Auth",
       "Payment: Khalti API",
     ],
   },
   {
-    id: "project2", 
+    id: "project2",
     title: "Online shopping center",
     description:
       "Online Shopping Center is a full-stack e-commerce web application developed using the MERN stack (MongoDB, Express.js, React, Node.js). The platform provides a seamless online shopping experience with features like product browsing, search and filter, cart management, order processing, and secure user authentication.",
@@ -48,14 +48,53 @@ const projects: ProjectType[] = [
       github: "https://github.com/rajanshah23/MERN-Stack",
     },
     screenshots: [
-      "/screenshots/mernstack.png", 
-      "/screenshots/mern1.png", 
-      "/screenshots/mern2.png"
+      "/screenshots/mernstack.png",
+      "/screenshots/mern1.png",
+      "/screenshots/mern2.png",
     ],
   },
   {
+    id: "Library Management System-api",
+    title: "Library Management System - Backend API",
+    description:
+      "This is a Library Management System backend built using Node.js, Express, Sequelize, and SQLite. It provides APIs to manage Authors and Books.",
+    image: "/screenshots/lms diagram.png",
+
+    technologies: ["Node.js", "Express", "Sequelize", "JWT", "sqlite3"],
+
+    links: {
+      github: "https://github.com/rajanshah23/Library-Management-System",
+      documentation:
+        "https://documenter.getpostman.com/view/42497059/2sB3HqGHzv",
+    },
+
+    screenshots: [
+      "/screenshots/lms diagram.png",
+      "/screenshots/image1.png",
+      "/screenshots/image2.png",
+      "/screenshots/image3.png",
+    ],
+
+    features: [
+      "CRUD operations for Authors and Books",
+      "Manual input validation (without Sequelize validators)",
+      "Pagination for list endpoints",
+      "Search/filter functionality including filter by name for Author and filter by title, author, and published year",
+      "Proper error handling (400 for bad requests, 404 for not found, 500 for internal errors)",
+      "Optional authentication for sensitive endpoints",
+    ],
+
+    technicalDetails: [
+      "Backend: Node.js, Express, Sequelize",
+      "Database: SQLite",
+      "Auth: JWT and bcrypt for password hashing",
+      "Development: nodemon for automatic server restarts",
+    ],
+  },
+
+  {
     id: "project3",
-    title: "PasteApp", 
+    title: "PasteApp",
     description:
       "A simple yet powerful Paste App built with React, Redux, and LocalStorage that lets you effortlessly create, edit, copy, and manage your text snippets in one place!",
     image: "/screenshots/paste1.png",
@@ -63,10 +102,7 @@ const projects: ProjectType[] = [
     links: {
       github: "https://github.com/rajanshah23/PasteApp",
     },
-    screenshots: [
-      "/screenshots/paste1.png", 
-      "/screenshots/paste2.png"
-    ],
+    screenshots: ["/screenshots/paste1.png", "/screenshots/paste2.png"],
   },
   {
     id: "project4",
@@ -76,11 +112,9 @@ const projects: ProjectType[] = [
     image: "/screenshots/Currency.png",
     technologies: ["Html", "CSS", "Javascript"],
     links: {
-      github: "https://github.com/rajanshah23/Currency-Converter", 
+      github: "https://github.com/rajanshah23/Currency-Converter",
     },
-    screenshots: [
-      "/screenshots/Currency.png"
-    ],
+    screenshots: ["/screenshots/Currency.png"],
   },
 ];
 
@@ -91,7 +125,7 @@ type ProjectsProps = {
 const Projects = ({ onProjectSelect }: ProjectsProps) => {
   const { ref, inView } = useInView({ threshold: 0.1 });
   const [showAll, setShowAll] = useState(false);
-  
+
   const visibleProjects = showAll ? projects : projects.slice(0, 3);
 
   const handleToggle = () => {
@@ -99,11 +133,15 @@ const Projects = ({ onProjectSelect }: ProjectsProps) => {
   };
 
   return (
-    <section id="projects" className="py-20 bg-gradient-to-b from-white via-gray-50 to-white relative overflow-hidden" ref={ref}>
+    <section
+      id="projects"
+      className="py-20 bg-gradient-to-b from-white via-gray-50 to-white relative overflow-hidden"
+      ref={ref}
+    >
       {/* Decorative background elements */}
       <div className="absolute top-0 left-0 w-96 h-96 bg-blue-100 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-purple-100 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
-      
+
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
           <h2
@@ -113,9 +151,15 @@ const Projects = ({ onProjectSelect }: ProjectsProps) => {
           >
             My Projects
           </h2>
-          <p className={`text-gray-600 text-lg max-w-3xl mx-auto ${inView ? "animate-fade-in" : "opacity-0"}`} style={{ transitionDelay: '100ms' }}>
-            Explore my portfolio of web applications, from e-commerce platforms to booking systems
-          </p> 
+          <p
+            className={`text-gray-600 text-lg max-w-3xl mx-auto ${
+              inView ? "animate-fade-in" : "opacity-0"
+            }`}
+            style={{ transitionDelay: "100ms" }}
+          >
+            Explore my portfolio of web applications, from e-commerce platforms
+            to booking systems
+          </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -145,7 +189,7 @@ const Projects = ({ onProjectSelect }: ProjectsProps) => {
                   </div>
                 </div>
               </div>
-              
+
               <div className="p-6">
                 <h3 className="text-xl font-bold mb-3 text-gray-800 group-hover:text-blue-600 transition-colors duration-300">
                   {project.title}
@@ -153,7 +197,7 @@ const Projects = ({ onProjectSelect }: ProjectsProps) => {
                 <p className="text-gray-600 mb-4 text-sm leading-relaxed line-clamp-3">
                   {project.description}
                 </p>
-                
+
                 <div className="flex flex-wrap gap-2 mb-5">
                   {project.technologies.map((tech) => (
                     <span
@@ -164,7 +208,7 @@ const Projects = ({ onProjectSelect }: ProjectsProps) => {
                     </span>
                   ))}
                 </div>
-                
+
                 <div className="flex gap-3 pt-4 border-t border-gray-100">
                   {project.links.github && (
                     <a
@@ -199,12 +243,23 @@ const Projects = ({ onProjectSelect }: ProjectsProps) => {
                       Play Store
                     </a>
                   )}
+                  {project.links.documentation && (
+                    <a
+                      href={project.links.documentation}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 bg-green-800 text-white rounded-lg hover:bg-green-900 hover:shadow-lg transform hover:scale-105 transition-all duration-300 text-sm font-medium"
+                    >
+                      <ExternalLink className="w-3 h-4" />
+                      Documentation
+                    </a>
+                  )}
                 </div>
               </div>
             </div>
           ))}
         </div>
-        
+
         {/* Enhanced Show More/Less button */}
         {projects.length > 3 && (
           <div className="text-center mt-12">
@@ -230,9 +285,16 @@ const Projects = ({ onProjectSelect }: ProjectsProps) => {
 
       <style jsx>{`
         @keyframes blob {
-          0%, 100% { transform: translate(0, 0) scale(1); }
-          33% { transform: translate(30px, -50px) scale(1.1); }
-          66% { transform: translate(-20px, 20px) scale(0.9); }
+          0%,
+          100% {
+            transform: translate(0, 0) scale(1);
+          }
+          33% {
+            transform: translate(30px, -50px) scale(1.1);
+          }
+          66% {
+            transform: translate(-20px, 20px) scale(0.9);
+          }
         }
         .animate-blob {
           animation: blob 7s infinite;
@@ -241,8 +303,14 @@ const Projects = ({ onProjectSelect }: ProjectsProps) => {
           animation-delay: 2s;
         }
         @keyframes fade-in {
-          from { opacity: 0; transform: translateY(20px); }
-          to { opacity: 1; transform: translateY(0); }
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
         }
         .animate-fade-in {
           animation: fade-in 0.8s ease-out;
