@@ -144,10 +144,6 @@ const Projects = ({ onProjectSelect }: ProjectsProps) => {
                     <ExternalLink className="w-6 h-6 text-white mx-auto" />
                   </div>
                 </div>
-                {/* Corner ribbon */}
-                <div className="absolute top-4 right-4 bg-blue-600 text-white px-3 py-1 rounded-full text-xs font-semibold shadow-lg">
-                  Featured
-                </div>
               </div>
               
               <div className="p-6">

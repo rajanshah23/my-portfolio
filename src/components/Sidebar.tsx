@@ -22,7 +22,9 @@ const Sidebar = ({ activeSection }: SidebarProps) => {
     <div className="flex flex-col h-full">
       {/* Header */}
       <div className="p-4 border-b border-gray-200">
-        <span className="text-2xl font-bold text-gray-800">Portfolio</span>
+        <span className="text-2xl font-bold bg-blue-700 bg-clip-text text-transparent">
+  Portfolio
+</span>
       </div>
 
       {/* Navigation */}

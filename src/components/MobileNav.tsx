@@ -22,7 +22,9 @@ const MobileNav = ({ isOpen, toggleMenu, activeSection }: MobileNavProps) => {
       {/* Mobile Header */}
       <div className="lg:hidden fixed top-0 left-0 right-0 bg-white border-b border-gray-200 z-50">
         <div className="flex items-center justify-between p-4">
-          <span className="text-xl font-bold text-gray-800">Portfolio</span>
+        <span className="text-2xl font-bold bg-blue-700 bg-clip-text text-transparent">
+  Portfolio
+</span>
           <button
             onClick={toggleMenu}
             className="text-gray-600 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"

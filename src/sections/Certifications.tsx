@@ -51,15 +51,7 @@ const Certifications = () => {
           {certifications.map((cert, index) => (
             <div
               key={cert.id}
-              className={`bg-gradient-to-br from-${cert.color}-50 to-${
-                cert.color === "blue"
-                  ? "indigo"
-                  : cert.color === "green"
-                  ? "emerald"
-                  : "pink"
-              }-50 rounded-xl p-6 border border-${
-                cert.color
-              }-100 transform hover:-translate-y-2 transition-all duration-300 ${
+              className={`bg-blue-50 rounded-xl p-6 border hover:-translate-y-2 transition-all duration-300 ${
                 inView ? "animate-fade-in" : "opacity-0"
               }`}
               style={{ transitionDelay: `${index * 100}ms` }}
