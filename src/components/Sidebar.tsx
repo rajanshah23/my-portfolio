@@ -23,7 +23,7 @@ const Sidebar = ({ activeSection }: SidebarProps) => {
       {/* Header */}
       <div className="p-4 border-b border-gray-200">
         <span className="text-2xl font-bold bg-blue-700 bg-clip-text text-transparent">
-  Portfolio
+  Rajan Kumar Gupta - Portfolio
 </span>
       </div>
 
