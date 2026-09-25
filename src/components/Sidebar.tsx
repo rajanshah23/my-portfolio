@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { ChevronDown, Home, User, Code, Folder, FileText, Book, Mail, GitBranch, Workflow, Milestone, BookOpen, Github } from "lucide-react";
+import { ChevronDown, Home, User, Code, Folder, FileText, Book, Mail, Workflow, Milestone, BookOpen, Github } from "lucide-react";
 
 type SidebarProps = {
   activeSection: string;
