@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { ChevronDown, ChevronUp } from 'lucide-react';
 
  
@@ -37,17 +37,23 @@ const educationItems = [
   },
 ];
 
-const colorMap = {
+const colorMap: Record<string, string> = {
   blue: '#3B82F6',    // Tailwind blue-500
   purple: '#8B5CF6',  // Tailwind purple-500
   green: '#22C55E',   // Tailwind green-500
 };
 
+const colorClasses: Record<string, { text: string; background: string }> = {
+  blue: { text: 'text-blue-600', background: 'bg-blue-50' },
+  purple: { text: 'text-purple-600', background: 'bg-purple-50' },
+  green: { text: 'text-green-600', background: 'bg-green-50' },
+};
+
 const Education = () => {
   const { ref, inView } = useInView({ threshold: 0.1 });
-  const [expandedCards, setExpandedCards] = useState({});
+  const [expandedCards, setExpandedCards] = useState<Record<string, boolean>>({});
 
-  const toggleCard = (cardId) => {
+  const toggleCard = (cardId: string) => {
     setExpandedCards(prev => ({
       ...prev,
       [cardId]: !prev[cardId]
@@ -93,7 +99,7 @@ const Education = () => {
                     >
                       <div className="flex items-center justify-between">
                         <div className="flex-1">
-                          <span className={`text-${item.color}-600 font-semibold text-sm block`}>
+                            <span className={`${colorClasses[item.color].text} font-semibold text-sm block`}>
                             {item.period}
                           </span>
                           <h3 className="text-lg font-bold text-gray-800 mt-1">
@@ -123,7 +129,7 @@ const Education = () => {
                           {item.achievements.map((achievement, i) => (
                             <span 
                               key={i} 
-                              className={`px-2 py-1 bg-${item.color}-50 text-${item.color}-600 rounded-full text-xs`}
+                              className={`px-2 py-1 ${colorClasses[item.color].background} ${colorClasses[item.color].text} rounded-full text-xs`}
                             >
                               {achievement}
                             </span>
@@ -140,13 +146,13 @@ const Education = () => {
                     <>
                       <div className="w-5/12 bg-white p-6 rounded-xl shadow-sm border border-gray-300">
                         <div className="flex flex-col">
-                          <span className={`text-${item.color}-600 font-semibold mb-1`}>{item.period}</span>
+                          <span className={`${colorClasses[item.color].text} font-semibold mb-1`}>{item.period}</span>
                           <h3 className="text-xl font-bold text-gray-800 mb-2">{item.degree}</h3>
                           <span className="text-gray-600 mb-3">{item.institution}</span>
                           <p className="text-gray-600">{item.description}</p>
                           <div className="mt-4 flex flex-wrap gap-2">
                             {item.achievements.map((achievement, i) => (
-                              <span key={i} className={`px-3 py-1 bg-${item.color}-50 text-${item.color}-600 rounded-full text-sm`}>
+                              <span key={i} className={`px-3 py-1 ${colorClasses[item.color].background} ${colorClasses[item.color].text} rounded-full text-sm`}>
                                 {achievement}
                               </span>
                             ))}
@@ -174,13 +180,13 @@ const Education = () => {
 
                       <div className="w-5/12 bg-white p-6 rounded-xl shadow-sm border border-gray-300">
                         <div className="flex flex-col">
-                          <span className={`text-${item.color}-600 font-semibold mb-1`}>{item.period}</span>
+                          <span className={`${colorClasses[item.color].text} font-semibold mb-1`}>{item.period}</span>
                           <h3 className="text-xl font-bold text-gray-800 mb-2">{item.degree}</h3>
                           <span className="text-gray-600 mb-3">{item.institution}</span>
                           <p className="text-gray-600">{item.description}</p>
                           <div className="mt-4 flex flex-wrap gap-2">
                             {item.achievements.map((achievement, i) => (
-                              <span key={i} className={`px-3 py-1 bg-${item.color}-50 text-${item.color}-600 rounded-full text-sm`}>
+                              <span key={i} className={`px-3 py-1 ${colorClasses[item.color].background} ${colorClasses[item.color].text} rounded-full text-sm`}>
                                 {achievement}
                               </span>
                             ))}

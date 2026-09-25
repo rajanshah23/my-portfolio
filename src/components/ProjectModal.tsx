@@ -1,29 +1,63 @@
 import { X, Github, ExternalLink } from 'lucide-react';
 import { ProjectType } from '../types';
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
+
+type ProjectWithDetails = ProjectType & {
+  detailedDescription?: string[];
+};
 
 type ProjectModalProps = {
-  project: ProjectType;
+  project: ProjectWithDetails;
   onClose: () => void;
 };
 
 const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
-  // Lock body scroll when modal is open
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const dialogRef = useRef<HTMLDivElement>(null);
+  const previouslyFocusedElement = useRef<HTMLElement | null>(null);
+
   useEffect(() => {
+    previouslyFocusedElement.current = document.activeElement instanceof HTMLElement
+      ? document.activeElement
+      : null;
+    closeButtonRef.current?.focus();
+
+    const focusableSelector = 'a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])';
     document.body.style.overflow = 'hidden';
-    
-    // Handle escape key
-    const handleEscape = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') {
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
         onClose();
+        return;
+      }
+
+      if (event.key !== 'Tab' || !dialogRef.current) return;
+
+      const focusableElements = Array.from(
+        dialogRef.current.querySelectorAll<HTMLElement>(focusableSelector)
+      );
+      if (focusableElements.length === 0) {
+        event.preventDefault();
+        return;
+      }
+
+      const firstElement = focusableElements[0];
+      const lastElement = focusableElements[focusableElements.length - 1];
+      if (event.shiftKey && document.activeElement === firstElement) {
+        event.preventDefault();
+        lastElement.focus();
+      } else if (!event.shiftKey && document.activeElement === lastElement) {
+        event.preventDefault();
+        firstElement.focus();
       }
     };
-    
-    document.addEventListener('keydown', handleEscape);
-    
+
+    document.addEventListener('keydown', handleKeyDown);
+
     return () => {
-      document.body.style.overflow = 'auto';
-      document.removeEventListener('keydown', handleEscape);
+      document.body.style.overflow = '';
+      document.removeEventListener('keydown', handleKeyDown);
+      previouslyFocusedElement.current?.focus();
     };
   }, [onClose]);
 
@@ -38,15 +72,19 @@ const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
     <div 
       className="fixed inset-0 bg-black/50 z-50 overflow-y-auto backdrop-blur-[2px] animate-fade-in"
       onClick={handleOutsideClick}
+      role="presentation"
     >
       <div className="min-h-screen py-12 px-4 flex items-center justify-center">
-        <div className="bg-white rounded-2xl max-w-5xl w-full animate-scale-up">
+        <div ref={dialogRef} className="bg-white rounded-2xl max-w-5xl w-full animate-scale-up" role="dialog" aria-modal="true" aria-labelledby="project-modal-title" tabIndex={-1}>
           {/* Header */}
           <div className="flex justify-between items-center p-6 border-b border-gray-200">
-            <h2 className="text-2xl font-bold text-gray-800">{project.title}</h2>
+            <h2 id="project-modal-title" className="text-2xl font-bold text-gray-800">{project.title}</h2>
             <button 
+              ref={closeButtonRef}
+              type="button"
               onClick={onClose}
-              className="p-2 hover:bg-gray-100 rounded-full transition-colors"
+              aria-label="Close project details"
+              className="rounded-full p-2 transition-colors hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
             >
               <X className="w-6 h-6" />
             </button>
@@ -61,6 +99,17 @@ const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
                 {project.description}
               </p>
             </div>
+
+            {project.detailedDescription && (
+              <div className="mb-8">
+                <h3 className="text-xl font-semibold mb-4">Implementation Details</h3>
+                <ul className="list-disc list-inside space-y-2 text-gray-600">
+                  {project.detailedDescription.map((detail, index) => (
+                    <li key={index}>{detail}</li>
+                  ))}
+                </ul>
+              </div>
+            )}
 
             {/* Tech Stack */}
             <div className="mb-8">
@@ -94,12 +143,27 @@ const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
                 <h3 className="text-xl font-semibold mb-4">Screenshots</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {project.screenshots.map((screenshot, index) => (
-                    <img 
-                      key={index}
-                      src={screenshot} 
-                      alt={`Screenshot ${index + 1}`} 
-                      className="rounded-lg w-full"
-                    />
+                    <figure key={index} className="space-y-2">
+                      <img
+                        src={screenshot}
+                        alt={`Screenshot ${index + 1}`}
+                        className="rounded-lg w-full"
+                        onError={(event) => {
+                          const figure = event.currentTarget.closest('figure');
+                          if (figure) {
+                            figure.style.display = 'none';
+                          }
+                        }}
+                      />
+                      <figcaption className="text-sm text-gray-500 text-center">
+                        {[
+                          'CI/CD Pipeline',
+                          'Kubernetes Pods',
+                          'WordPress Frontend',
+                          'Grafana Dashboard',
+                        ][index] || `Screenshot ${index + 1}`}
+                      </figcaption>
+                    </figure>
                   ))}
                 </div>
               </div>

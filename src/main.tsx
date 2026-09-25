@@ -1,18 +1,18 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import App from './App';
+import ErrorBoundary from './components/ErrorBoundary';
 import './index.css';
-
-console.log("🚀 main.tsx is executing!"); // Add this
 
 const container = document.getElementById('root');
 if (!container) {
-  console.error("❌ Cannot find root element!");
-} else {
-  console.log("✅ Root element found, rendering React app...");
+  throw new Error('Root element not found');
 }
-createRoot(document.getElementById('root')!).render(
+
+createRoot(container).render(
   <StrictMode>
-    <App />
+    <ErrorBoundary>
+      <App />
+    </ErrorBoundary>
   </StrictMode>
 );

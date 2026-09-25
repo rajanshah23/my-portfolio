@@ -1,0 +1,109 @@
+Rajan Kumar Gupta
+
++977 9867488761 | Parasi, Nawalparasi, Nepal
+
+shahrajan774@gmail.com | github.com/rajanshah23 | www.rajangupta.com.np | linkedin.com/in/rajan-kumar-gupta-16696532b/
+
+PROFILE SUMMARY
+Electronics, Communication and Information Engineering graduate with hands-on experience in MERN stack,
+REST APIs, Supabase/PostgreSQL, and end-to-end web application development. Built production level systems
+including a theatre Booking System with authentication, payments, and admin dashboards. Skilled in TypeScript,
+React, Node.js, and IoT systems with strong problem-solving and project leadership abilities, complemented by
+proven mentoring experience guiding junior students in full-stack development, programming fundamentals, and
+hardware projects through hands-on workshops and personalized support, with a strong commitment to delivering
+clear, practical technical education
+
+EDUCATION
+
+Bachelor in Electronics, Communication and Information Engineering: Paschimanchal Campus, Tribhuvan
+University | Pokhara, Nepal 2021 - 2025
+
+Higher Secondary Education: Kalika Manavgyan Secondary School | Butwal, Nepal 2018 - 2020
+
+PUBLICATIONS
+
+[1] A. Laudari Bhat, B. KC Khatri, G. Rijal, R. K. Gupta, and S. Adhikari, "Obstacle Detection for Visually Impaired," Proceedings of
+IOE Graduate Conference, Vol. 16, pp. 1913-1919, April 2025 (Published June 2026). Peer-reviewed. ISSN: 2350-8914 (Online), 2350-
+8906 (Print).
+ IOEGC 2025 - Obstacle Detection Paper
+
+SKILLS
+
+    Programming Language: JavaScript, TypeScript, Python, C/C++
+    Frontend: React.js, Next.js, HTML, CSS, Tailwind CSS
+    Backend: Node.js, Express.js, REST APIs, Django, Flask
+    Databases: PostgreSQL, Supabase, MongoDB, MySQL, SQL Server, SQLite
+    Tools: Git, GitHub, Postman, Render, Vercel, Netlify, Docker, AWS, Linux, ArgoCD, Helm, GitOps
+    DevOps: Container Security Scanning (SAST/SCA), Canary Deployments
+    Embedded & IoT: Raspberry Pi, Arduino, ESP8266/ESP32, AD8232 ECG Sensor, RS485, RS232, UART
+    Others: TensorFlow, OpenCV
+
+
+Teaching and Mentoring Experience
+
+    Technical Mentor - Paschimanchal Campus 2023 - 2024
+    Mentored 15+ junior students in full-stack web development, guiding them from fundamentals to project
+        completion
+    Conducted weekly hands-on sessions covering React.js, Node.js, and database design
+    Organized and led soldering and PCB design workshops for 30+ participants
+    Provided one-on-one guidance for student projects and academic challenges.
+
+
+WORK EXPERIENCE
+
+Backend Intern - Digital Pathshala
+May 2024 - June 2025
+
+    Developed REST APIs for a Theatre Booking System using Node.js, Express, and Supabase.
+    Implemented JWT authentication, role-based access, and Khalti payment verification.
+    Built real-time seat booking, cancellation, and overlap validation logic.
+    Designed optimized PostgreSQL tables and improved API response performance.
+    Integrated Supabase Storage for uploading show images and user assets.
+
+PROJECTS
+
+CI/CD Pipeline Architecture Design (Push-based & GitOps Multi-Environment)
+
+    Architected and documented two distinct Kubernetes-native deployment strategies.
+    Designed a Push-based linear pipeline incorporating Unit Tests, SAST code scanning, Container vulnerability scanning (Image Scan), and automated Helm chart updates for rapid development loops.
+    Designed a GitOps Multi-Environment progressive delivery model using ArgoCD, environment branching (Dev/Staging/Prod), automated Pull Request promotions, and manual approval gates for production.
+    Implemented phase logic enabling zero-downtime Canary deployments and instant Git-revert rollbacks, reducing potential incident recovery time drastically.
+
+Web Development Projects
+
+    Theatre Booking System: Built a full-stack Theatre Booking System using React.js, TypeScript, Tailwind
+        CSS, Node.js, Express, and PostgreSQL with Supabase. Features include JWT auth, seat booking, Khalti
+        payment, review system, and image storage via Supabase. (https://github.com/rajanshah23/Theatre-Booking-System)
+
+    IncorpoFlow: Company Incorporation Tool: Developed a fullstack multistep company registration
+        application with draft persistence and admin view. Built with React (Vite), Node.js, Express,
+        PostgreSQL (Sequelize ORM), and Docker. Implemented instant draft saving across browser refreshes,
+        a RESTful API with full CRUD and cascading deletes, and containerised the entire stack (PostgreSQL,
+        backend, Nginx-served frontend) using Docker Compose for one-command setup. Includes an admin
+        dashboard to list all companies with their shareholders.
+
+    Online Shopping Center: Built a full-stack web application using MERN stack. This platform provides a
+        seamless online shopping experience with features like product browsing, search and filter, cart
+        management, order processing, and secure user authentication.
+
+    Currency Converter Web App: Built a responsive app for real-time currency conversion using REST APIs
+        and frontend technologies like HTML, CSS, and JavaScript.
+
+    Paste App: Built a lightweight text snippet manager with React, Redux Toolkit, and LocalStorage. Features
+        include create, edit, copy, and manage snippets with Tailwind CSS UI and React Hot Toast notifications.
+
+Academic and Hardware Projects
+
+    ECG Monitoring System: Designed and implemented ECG monitoring tool for biomedical applications with
+        live visualization. (Paschimanchal Campus | 2023 - 2024)
+
+    Obstacle Detection for Visually Impaired - Published at IOE Graduate Conference, April 2025
+        (https://lnkd.in/g8TuWbnm): Developed an assistive system using ultrasonic sensors and haptic feedback for real-
+        time guidance. (Paschimanchal Campus | 2024 - 2025)
+
+Leadership & Extra-Curricular Activities
+
+  Led project teams during academic and extracurricular projects.
+  Mentored juniors in full-stack development and embedded systems.
+  Organized soldering and PCB design workshops.
+  Participated in multiple tech events and bootcamps to stay updated with industry trends.

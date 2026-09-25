@@ -6,12 +6,12 @@ const Footer = () => {
       
       <div className="container mx-auto px-4">
         {/* Top Footer Section */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 py-">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 py-10">
           {/* About Section */}
           <div className="space-y-4">
             <h3 className="text-xl font-semibold text-white mb-4 mt-4">Rajan Kumar Gupta</h3>
             <p className="text-gray-400" style={{ textAlign: 'justify' }}>
-              Electronics,Communication and Information Engineer passionate about building smart systems through innovative code and hardware.
+              Electronics, Communication and Information Engineer and DevOps practitioner passionate about building reliable systems through software, automation, infrastructure, and hardware.
             </p>
             <div className="flex space-x-4">
               <a href="http://github.com/rajanshah23" className="text-gray-400 hover:text-white transition-colors">
@@ -30,8 +30,8 @@ const Footer = () => {
           </div>
 
           {/* Quick Links */}
-          <div >
-            <h3 className="text-xl font-semibold text-white mb-4 mt-4 space-y-2">Quick Links</h3>
+          <div>
+            <h3 className="text-xl font-semibold text-white mb-4 mt-4">Quick Links</h3>
             <ul className="space-y-2">
               <li>
                 <a href="#home" className="text-gray-400 hover:text-white transition-colors">
@@ -54,6 +54,16 @@ const Footer = () => {
                 </a>
               </li>
               <li>
+                <a href="#case-studies" className="text-gray-400 hover:text-white transition-colors">
+                  DevOps Case Studies
+                </a>
+              </li>
+              <li>
+                <a href="#blog" className="text-gray-400 hover:text-white transition-colors">
+                  Technical Blog
+                </a>
+              </li>
+              <li>
                 <a href="#contact" className="text-gray-400 hover:text-white transition-colors">
                   Contact
                 </a>
@@ -64,17 +74,17 @@ const Footer = () => {
           {/* Contact Info */}
           <div>
             <h3 className="text-xl font-semibold text-white mb-4 mt-4">Contact Info</h3>
-            <ul className="space-y-2">
-              <li className="flex items-center space-x-4">
-                <Mail className="w-5 h-5" />
+            <ul className="space-y-3">
+              <li className="flex items-center gap-3">
+                <Mail className="w-5 h-5 flex-shrink-0" />
                 <span>shahrajan774@gmail.com</span>
               </li>
-              <li className="flex items-center space-x-3">
-                <Phone className="w-5 h-5" />
+              <li className="flex items-center gap-3">
+                <Phone className="w-5 h-5 flex-shrink-0" />
                 <span>+977-9867488761</span>
               </li>
-              <li className="flex items-center space-x-3">
-                <MapPin className="w-8 h-5" />
+              <li className="flex items-center gap-3">
+                <MapPin className="w-5 h-5 flex-shrink-0" />
                 <span>Ramgram-3, Parasi Nawalparasi</span>
               </li>
             </ul>
@@ -84,26 +94,29 @@ const Footer = () => {
           <div>
             <h3 className="text-xl font-semibold text-white mb-4 mt-4">Newsletter</h3>
             <p className="text-gray-300 mb-4">Subscribe to get the latest updates.</p>
-            <form className="w-full max-w-sm flex">
+            <div className="w-full max-w-sm flex" aria-disabled="true">
               <input
                 type="email"
                 placeholder="Your email"
+                aria-label="Newsletter email address"
+                disabled
                 className="w-full px-4 py-2 bg-gray-800 text-gray-300 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
               <button
-                type="submit"
+                type="button"
+                disabled
                 className="px-4 py-2 bg-blue-600 text-white rounded-r-lg hover:bg-blue-700 transition-colors whitespace-nowrap"
               >
                 Subscribe
               </button>
-            </form>
+            </div>
           </div>
         </div>
 
         {/* Bottom Footer */}
         <div className="border-t border-gray-800 py-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-center md:text-left">© 2024 Rajan Kumar Gupta. All rights reserved.</p>
+            <p className="text-center md:text-left text-gray-400">© 2024 Rajan Kumar Gupta. All rights reserved.</p>
           </div>
         </div>
       </div>

@@ -60,34 +60,38 @@ const About = () => {
             <div className="space-y-6">
               <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
                 <h3 className="text-xl font-semibold mb-4 text-blue-600">
-                  Who I Am
+                  Backend Engineer
                 </h3>
                 <p className="text-gray-600 leading-relaxed">
-                  I'm an Electronics,Communication and Information Engineer passionate about
-                  bridging the gap between hardware and software.
+                  I build reliable backend services, REST APIs, and application
+                  logic with a focus on maintainability, performance, and clean
+                  system design. My work includes API development, database
+                  integration, authentication, validation, and service-layer
+                  architecture.
                 </p>
               </div>
 
               <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
                 <h3 className="text-xl font-semibold mb-4 text-green-600">
-                  What I Do
+                  DevOps Engineer
                 </h3>
                 <p className="text-gray-600 leading-relaxed">
-                  I build dynamic, high-performance web applications using the
-                  MERN stack and develop smart, connected systems by combining
-                  my skills in electronics and embedded systems.
+                  I automate deployment workflows and infrastructure using Linux,
+                  Docker, GitHub Actions, Kubernetes, Helm, Prometheus,
+                  Grafana, and Ansible. My focus is on building repeatable,
+                  observable, and reliable delivery systems in real-world
+                  environments.
                 </p>
               </div>
 
               <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
                 <h3 className="text-xl font-semibold mb-4 text-purple-600">
-                  My Goals
+                  My Approach
                 </h3>
                 <p className="text-gray-600 leading-relaxed">
-                  My aim is to create innovative, efficient solutions that
-                  seamlessly integrate software and hardware, bringing ideas to
-                  life through responsive web interfaces and intelligent
-                  hardware integration.
+                  I combine software engineering with practical systems thinking,
+                  creating solutions that connect application delivery,
+                  automation, and infrastructure into one streamlined workflow.
                 </p>
               </div>
             </div>

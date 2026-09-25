@@ -29,7 +29,7 @@ const Layout = ({ children, activeSection }: LayoutProps) => {
       />
       
       {/* Main content */}
-      <main className="flex-1 lg:ml-64">
+      <main className="min-w-0 w-full flex-1 lg:ml-64">
         {children}
       </main>
     </div>

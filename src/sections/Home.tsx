@@ -9,6 +9,7 @@ const Home = () => {
     () => [
       "Electronics, Communication and Information Engineer",
       "MERN Stack Developer",
+      "DevOps Engineer",
       "Problem Solver",
       "Backend Developer"
     ],
@@ -72,10 +73,11 @@ const Home = () => {
             </div>
 
             <p className="text-gray-600 mb-6 lg:mb-8 leading-relaxed max-w-2xl mx-auto lg:mx-0 text-justify lg:text-left">
-              I'm an Electronics,Communication and Information Engineer passionate about bridging
-              gap between hardware and software. Skilled in full-stack
-              development, IoT, and embedded systems with hands-on experience
-              using Raspberry Pi, Arduino, and ESP modules.
+              I'm an Electronics, Communication and Information Engineer and
+              DevOps practitioner passionate about bridging the gap between
+              hardware and software. I build full-stack applications and
+              automate reliable deployments with Docker, Kubernetes, GitHub
+              Actions, Ansible, and cloud-native monitoring tools.
             </p>
 
             <div className="flex flex-wrap gap-3 sm:gap-4 justify-center lg:justify-start">

@@ -2,9 +2,9 @@ import {
   SiJavascript, SiTypescript, SiPython, SiC,
   SiReact, SiNextdotjs, SiHtml5, SiCss3, SiTailwindcss,
   SiNodedotjs, SiExpress, SiDjango, SiFlask, SiPostgresql,
-  SiSupabase, SiMongodb, SiMysql, SiGit, SiGithub, SiPostman,
+  SiSupabase, SiMongodb, SiMysql, SiGit, SiGithub,
   SiDocker, SiAmazon, SiLinux, SiRaspberrypi, SiArduino,
-  SiTensorflow, SiOpencv,
+  SiTensorflow, SiOpencv, SiKubernetes, SiHelm, SiPrometheus, SiGrafana, SiAnsible,
 } from "react-icons/si";
 
 const skills = [
@@ -27,10 +27,15 @@ const skills = [
   { icon: <SiMysql size={40} color="#4479A1" />, name: "MySQL" },
   { icon: <SiGit size={40} color="#F05032" />, name: "Git" },
   { icon: <SiGithub size={40} color="black" />, name: "GitHub" },
-  { icon: <SiPostman size={40} color="#FF6C37" />, name: "Postman" },
+  { icon: <SiGithub size={40} color="black" />, name: "GitHub Actions" },
   { icon: <SiDocker size={40} color="#2496ED" />, name: "Docker" },
-  { icon: <SiAmazon size={40} color="#FF9900" />, name: "AWS" },
+  { icon: <SiAnsible size={40} color="#1A1917" />, name: "Ansible" },
+  { icon: <SiKubernetes size={40} color="#326CE5" />, name: "Kubernetes" },
+  { icon: <SiHelm size={40} color="#0F1689" />, name: "Helm" },
+  { icon: <SiPrometheus size={40} color="#E6522C" />, name: "Prometheus" },
+  { icon: <SiGrafana size={40} color="#F05A28" />, name: "Grafana" },
   { icon: <SiLinux size={40} color="#FCC624" />, name: "Linux" },
+  { icon: <SiAmazon size={40} color="#FF9900" />, name: "AWS" },
   { icon: <SiRaspberrypi size={40} color="#C51A4A" />, name: "Raspberry Pi" },
   { icon: <SiArduino size={40} color="#00979D" />, name: "Arduino" },
   { icon: <SiTensorflow size={40} color="#FF6F00" />, name: "TensorFlow" },
@@ -38,45 +43,28 @@ const skills = [
 ];
 
 const SkillsTwoRows = () => {
-  const row1 = skills.slice(0, 13);
-  const row2 = skills.slice(13, 26);
+  const midpoint = Math.ceil(skills.length / 2);
+  const row1 = skills.slice(0, midpoint);
+  const row2 = skills.slice(midpoint);
 
   return (
     <section id="skills" className="py-16 px-4 bg-gradient-to-b from-gray-50 to-white">
-      <h2 className="text-4xl font-bold text-center mb-16 ">
-        Technical Skills
-      </h2>
+      <h2 className="text-4xl font-bold text-center mb-16">Technical Skills</h2>
 
-      {/* First row */}
       <div className="flex flex-wrap justify-center gap-6 mb-8">
         {row1.map((skill, idx) => (
-          <div
-            key={idx}
-            className="group flex flex-col items-center w-20 sm:w-24 md:w-28 p-4 rounded-xl bg-white shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 cursor-pointer border border-gray-100"
-          >
-            <div className="transform group-hover:scale-110 transition-transform duration-300">
-              {skill.icon}
-            </div>
-            <span className="mt-3 text-sm font-medium text-gray-700 text-center group-hover:text-blue-600 transition-colors duration-300">
-              {skill.name}
-            </span>
+          <div key={idx} className="group flex flex-col items-center w-20 sm:w-24 md:w-28 p-4 rounded-xl bg-white shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 cursor-pointer border border-gray-100">
+            <div className="transform group-hover:scale-110 transition-transform duration-300">{skill.icon}</div>
+            <span className="mt-3 text-sm font-medium text-gray-700 text-center group-hover:text-blue-600 transition-colors duration-300">{skill.name}</span>
           </div>
         ))}
       </div>
 
-      {/* Second row */}
       <div className="flex flex-wrap justify-center gap-6">
         {row2.map((skill, idx) => (
-          <div
-            key={idx}
-            className="group flex flex-col items-center w-20 sm:w-24 md:w-28 p-4 rounded-xl bg-white shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 cursor-pointer border border-gray-100"
-          >
-            <div className="transform group-hover:scale-110 transition-transform duration-300">
-              {skill.icon}
-            </div>
-            <span className="mt-3 text-sm font-medium text-gray-700 text-center group-hover:text-blue-600 transition-colors duration-300">
-              {skill.name}
-            </span>
+          <div key={idx} className="group flex flex-col items-center w-20 sm:w-24 md:w-28 p-4 rounded-xl bg-white shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 cursor-pointer border border-gray-100">
+            <div className="transform group-hover:scale-110 transition-transform duration-300">{skill.icon}</div>
+            <span className="mt-3 text-sm font-medium text-gray-700 text-center group-hover:text-blue-600 transition-colors duration-300">{skill.name}</span>
           </div>
         ))}
       </div>

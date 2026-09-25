@@ -33,6 +33,11 @@ const certifications: CertificationType[] = [
   },
 ];
 
+const certificationColorClasses: Record<string, { background: string; text: string; hoverText: string }> = {
+  blue: { background: 'bg-blue-500', text: 'text-blue-600', hoverText: 'hover:text-blue-700' },
+  purple: { background: 'bg-purple-500', text: 'text-purple-600', hoverText: 'hover:text-purple-700' },
+};
+
 const Certifications = () => {
   const { ref, inView } = useInView({ threshold: 0.1 });
 
@@ -58,7 +63,7 @@ const Certifications = () => {
             >
               <div className="flex items-start space-x-4">
                 <div
-                  className={`flex-shrink-0 w-16 h-16 bg-${cert.color}-500 rounded-lg flex items-center justify-center`}
+                  className={`flex-shrink-0 w-16 h-16 ${certificationColorClasses[cert.color].background} rounded-lg flex items-center justify-center`}
                 >
                   <img
                     src={cert.logo}
@@ -83,7 +88,7 @@ const Certifications = () => {
                   {cert.link && (
                     <a
                       href={cert.link}
-                      className={`inline-flex items-center text-${cert.color}-600 hover:text-${cert.color}-700 transition-colors`}
+                      className={`inline-flex items-center ${certificationColorClasses[cert.color].text} ${certificationColorClasses[cert.color].hoverText} transition-colors`}
                     >
                       View Certificate
                       <ExternalLink className="w-4 h-4 ml-1" />

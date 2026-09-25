@@ -5,6 +5,8 @@ import { FaGithub, FaLinkedin, FaTwitter, FaFacebook } from "react-icons/fa";
 import { useInView } from "../hooks/useInView";
 import { toast } from "react-hot-toast";
 
+const FORMSPREE_ENDPOINT = import.meta.env.VITE_FORMSPREE_ENDPOINT || "https://formspree.io/f/xnndjdqq";
+
 const Contact = () => {
   const { ref, inView } = useInView({ threshold: 0.1 });
 
@@ -34,7 +36,7 @@ const Contact = () => {
     try {
       console.log("Sending message...");
       await axios.post(
-        "https://formspree.io/f/xnndjdqq", // Replace with your actual Formspree ID
+        FORMSPREE_ENDPOINT,
         {
           name: `${formData.firstName} ${formData.lastName}`,
           email: formData.email,

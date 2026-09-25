@@ -3,9 +3,50 @@ import { ProjectType } from "../types";
 import { Github, ExternalLink, ChevronDown, ChevronUp } from "lucide-react";
 import { useState } from "react";
 
-const projects: ProjectType[] = [
+type ProjectWithDetails = ProjectType & {
+  detailedDescription?: string[];
+};
+
+const projects: ProjectWithDetails[] = [
+  {
+    id: "wordpress-cicd",
+    category: "DevOps",
+    title: "WordPress DevOps CI/CD Pipeline",
+    description:
+      "End-to-end deployment automation for WordPress using Docker, Kubernetes (k3s), GitHub Actions, Helm, Prometheus, and Ansible on a minimal AlmaLinux 9 VM.",
+    image: "/screenshots/wordpress-cicd/main.png",
+    technologies: [
+      "AlmaLinux 9",
+      "Docker",
+      "Kubernetes",
+      "GitHub Actions",
+      "Helm",
+      "Prometheus",
+      "Grafana",
+      "Ansible",
+    ],
+    links: {
+      github: "https://github.com/rajanshah23/wordpress-docker-cicd",
+      live: null,
+    },
+    screenshots: [
+      "/screenshots/wordpress-cicd/pipeline.png",
+      "/screenshots/wordpress-cicd/kubectl.png",
+      "/screenshots/wordpress-cicd/wordpress.png",
+      "/screenshots/wordpress-cicd/grafana.png",
+    ],
+    detailedDescription: [
+      "Provisioned a minimal AlmaLinux 9 VM in Oracle VirtualBox with strict resource limits (2GB RAM).",
+      "Containerized WordPress with Docker Compose for local development and testing.",
+      "Set up a self-hosted GitHub Actions runner to build Docker images and push them to a registry.",
+      "Orchestrated the deployment on Kubernetes (k3s) using Helm charts for scalability.",
+      "Integrated Prometheus and Grafana for real-time monitoring and alerting.",
+      "Automated firewall and networking rules to securely expose the WordPress service.",
+    ],
+  },
   {
     id: "project1",
+    category: "Full Stack",
     title: "Theatre Booking System",
     description:
       "A modern and responsive frontend for an online theatre booking platform, designed to provide a seamless user experience for browsing shows, booking seats, making payments, and managing profile.",
@@ -39,6 +80,7 @@ const projects: ProjectType[] = [
   },
   {
     id: "project2",
+    category: "Full Stack",
     title: "Online shopping center",
     description:
       "Online Shopping Center is a full-stack e-commerce web application developed using the MERN stack (MongoDB, Express.js, React, Node.js). The platform provides a seamless online shopping experience with features like product browsing, search and filter, cart management, order processing, and secure user authentication.",
@@ -55,6 +97,7 @@ const projects: ProjectType[] = [
   },
   {
     id: "Library Management System-api",
+    category: "Backend",
     title: "Library Management System - Backend API",
     description:
       "This is a Library Management System backend built using Node.js, Express, Sequelize, and SQLite. It provides APIs to manage Authors and Books.",
@@ -94,6 +137,7 @@ const projects: ProjectType[] = [
 
   {
     id: "project3",
+    category: "Full Stack",
     title: "PasteApp",
     description:
       "A simple yet powerful Paste App built with React, Redux, and LocalStorage that lets you effortlessly create, edit, copy, and manage your text snippets in one place!",
@@ -106,6 +150,7 @@ const projects: ProjectType[] = [
   },
   {
     id: "project4",
+    category: "Full Stack",
     title: "Currency Converter",
     description:
       "A Currency Converter web application that allows users to convert amounts from one currency to another using real-time exchange rates. This project fetches up-to-date currency exchange rates from a reliable API and provides an easy-to-use interface for quick currency conversions.",
@@ -125,8 +170,14 @@ type ProjectsProps = {
 const Projects = ({ onProjectSelect }: ProjectsProps) => {
   const { ref, inView } = useInView({ threshold: 0.1 });
   const [showAll, setShowAll] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState("All");
 
-  const visibleProjects = showAll ? projects : projects.slice(0, 3);
+  const categories = ["All", "Full Stack", "Backend", "DevOps", "Embedded Systems"];
+  const filteredProjects = selectedCategory === "All"
+    ? projects
+    : projects.filter((project) => project.category === selectedCategory);
+
+  const visibleProjects = showAll ? filteredProjects : filteredProjects.slice(0, 3);
 
   const handleToggle = () => {
     setShowAll(!showAll);
@@ -157,9 +208,30 @@ const Projects = ({ onProjectSelect }: ProjectsProps) => {
             }`}
             style={{ transitionDelay: "100ms" }}
           >
-            Explore my portfolio of web applications, from e-commerce platforms
-            to booking systems
+            Explore my portfolio of web applications and DevOps work, from
+            automated deployments to cloud-native infrastructure.
           </p>
+        </div>
+
+        <div className="mb-10 flex flex-wrap justify-center gap-3" aria-label="Filter projects by category">
+          {categories.map((category) => (
+            <button
+              key={category}
+              type="button"
+              onClick={() => {
+                setSelectedCategory(category);
+                setShowAll(false);
+              }}
+              aria-pressed={selectedCategory === category}
+              className={`rounded-full border px-4 py-2 text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 ${
+                selectedCategory === category
+                  ? "border-blue-600 bg-blue-600 text-white"
+                  : "border-gray-200 bg-white text-gray-600 hover:border-blue-300 hover:text-blue-600"
+              }`}
+            >
+              {category}
+            </button>
+          ))}
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -171,13 +243,18 @@ const Projects = ({ onProjectSelect }: ProjectsProps) => {
               }`}
               style={{ transitionDelay: `${index * 100}ms` }}
             >
-              <div
-                className="relative overflow-hidden cursor-pointer h-56"
+              <button
+                type="button"
+                className="group relative block h-56 w-full overflow-hidden text-left focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-inset"
                 onClick={() => onProjectSelect(project)}
+                aria-label={`View details for ${project.title}`}
               >
                 <img
                   src={project.image}
                   alt={project.title}
+                  onError={(event) => {
+                    event.currentTarget.src = "/screenshots/Home.png";
+                  }}
                   className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
@@ -188,12 +265,17 @@ const Projects = ({ onProjectSelect }: ProjectsProps) => {
                     <ExternalLink className="w-6 h-6 text-white mx-auto" />
                   </div>
                 </div>
-              </div>
+              </button>
 
               <div className="p-6">
                 <h3 className="text-xl font-bold mb-3 text-gray-800 group-hover:text-blue-600 transition-colors duration-300">
                   {project.title}
                 </h3>
+                {project.category && (
+                  <span className="mb-3 inline-flex rounded-full border border-blue-100 bg-blue-50 px-3 py-1 text-xs font-semibold text-blue-700">
+                    {project.category}
+                  </span>
+                )}
                 <p className="text-gray-600 mb-4 text-sm leading-relaxed line-clamp-3">
                   {project.description}
                 </p>
@@ -261,7 +343,7 @@ const Projects = ({ onProjectSelect }: ProjectsProps) => {
         </div>
 
         {/* Enhanced Show More/Less button */}
-        {projects.length > 3 && (
+        {filteredProjects.length > 3 && (
           <div className="text-center mt-12">
             <button
               onClick={handleToggle}
@@ -283,7 +365,7 @@ const Projects = ({ onProjectSelect }: ProjectsProps) => {
         )}
       </div>
 
-      <style jsx>{`
+      <style>{`
         @keyframes blob {
           0%,
           100% {
