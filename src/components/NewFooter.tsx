@@ -1,127 +1,81 @@
-import { Github, Linkedin, Twitter, Mail, Phone, MapPin, Facebook } from 'lucide-react';
+import { Facebook, Github, Linkedin, Mail, MapPin, Phone } from 'lucide-react';
+import { FaTwitter } from 'react-icons/fa';
 
-const Footer = () => {
-  return (
-    <footer className="bg-gray-900 text-gray-300">
-      
-      <div className="container mx-auto px-4">
-        {/* Top Footer Section */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 py-10">
-          {/* About Section */}
-          <div className="space-y-4">
-            <h3 className="text-xl font-semibold text-white mb-4 mt-4">Rajan Kumar Gupta</h3>
-            <p className="text-gray-400" style={{ textAlign: 'justify' }}>
-              Electronics, Communication and Information Engineer and DevOps practitioner passionate about building reliable systems through software, automation, infrastructure, and hardware.
-            </p>
-            <div className="flex space-x-4">
-              <a href="http://github.com/rajanshah23" className="text-gray-400 hover:text-white transition-colors">
-                <Github className="w-6 h-6" />
-              </a>
-              <a href="https://www.linkedin.com/in/rajan-kumar-gupta-16696532b/" className="text-gray-400 hover:text-white transition-colors">
-                <Linkedin className="w-6 h-6" />
-              </a>
-              <a href="https://x.com/Rajansh26003523" className="text-gray-400 hover:text-white transition-colors">
-                <Twitter className="w-6 h-6" />
-              </a>
-              <a href="https://www.facebook.com/rajana.gupta.805984" className="text-gray-400 hover:text-white transition-colors">
-                <Facebook className="w-6 h-6" />
-              </a>
-            </div>
-          </div>
+const navigation = [
+  { label: 'Home', href: '#home' },
+  { label: 'About', href: '#about' },
+  { label: 'Skills', href: '#skills' },
+  { label: 'Projects', href: '#projects' },
+  { label: 'DevOps Case Studies', href: '#case-studies' },
+  { label: 'Contact', href: '#contact' },
+];
 
-          {/* Quick Links */}
-          <div>
-            <h3 className="text-xl font-semibold text-white mb-4 mt-4">Quick Links</h3>
-            <ul className="space-y-2">
-              <li>
-                <a href="#home" className="text-gray-400 hover:text-white transition-colors">
-                  Home
-                </a>
-              </li>
-              <li>
-                <a href="#about" className="text-gray-400 hover:text-white transition-colors">
-                  About
-                </a>
-              </li>
-              <li>
-                <a href="#skills" className="text-gray-400 hover:text-white transition-colors">
-                  Skills
-                </a>
-              </li>
-              <li>
-                <a href="#projects" className="text-gray-400 hover:text-white transition-colors">
-                  Projects
-                </a>
-              </li>
-              <li>
-                <a href="#case-studies" className="text-gray-400 hover:text-white transition-colors">
-                  DevOps Case Studies
-                </a>
-              </li>
-              <li>
-                <a href="#blog" className="text-gray-400 hover:text-white transition-colors">
-                  Technical Blog
-                </a>
-              </li>
-              <li>
-                <a href="#contact" className="text-gray-400 hover:text-white transition-colors">
-                  Contact
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          {/* Contact Info */}
-          <div>
-            <h3 className="text-xl font-semibold text-white mb-4 mt-4">Contact Info</h3>
-            <ul className="space-y-3">
-              <li className="flex items-center gap-3">
-                <Mail className="w-5 h-5 flex-shrink-0" />
-                <span>shahrajan774@gmail.com</span>
-              </li>
-              <li className="flex items-center gap-3">
-                <Phone className="w-5 h-5 flex-shrink-0" />
-                <span>+977-9867488761</span>
-              </li>
-              <li className="flex items-center gap-3">
-                <MapPin className="w-5 h-5 flex-shrink-0" />
-                <span>Ramgram-3, Parasi Nawalparasi</span>
-              </li>
-            </ul>
-          </div>
-
-          {/* Newsletter */}
-          <div>
-            <h3 className="text-xl font-semibold text-white mb-4 mt-4">Newsletter</h3>
-            <p className="text-gray-300 mb-4">Subscribe to get the latest updates.</p>
-            <div className="w-full max-w-sm flex" aria-disabled="true">
-              <input
-                type="email"
-                placeholder="Your email"
-                aria-label="Newsletter email address"
-                disabled
-                className="w-full px-4 py-2 bg-gray-800 text-gray-300 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-              />
-              <button
-                type="button"
-                disabled
-                className="px-4 py-2 bg-blue-600 text-white rounded-r-lg hover:bg-blue-700 transition-colors whitespace-nowrap"
-              >
-                Subscribe
-              </button>
-            </div>
+const Footer = () => (
+  <footer className="border-t-4 border-sky-500 bg-gray-900 text-gray-300">
+    <div className="mx-auto max-w-7xl px-6 py-10">
+      <div className="grid grid-cols-1 gap-10 md:grid-cols-3 md:gap-12">
+        <div>
+          <h2 className="text-xl font-semibold text-white">Rajan Kumar Gupta</h2>
+          <p className="mt-3 max-w-sm text-sm leading-relaxed text-gray-400">
+            Electronics, Communication and Information Engineer and DevOps practitioner passionate about building reliable systems through software, automation, infrastructure, and hardware.
+          </p>
+          <div className="mt-5 flex gap-4">
+            <a href="https://github.com/rajanshah23" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile" className="text-gray-400 transition-colors hover:text-white focus:outline-none focus:ring-2 focus:ring-sky-400">
+              <Github className="h-5 w-5" aria-hidden="true" />
+            </a>
+            <a href="https://www.linkedin.com/in/rajan-kumar-gupta-16696532b/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile" className="text-gray-400 transition-colors hover:text-white focus:outline-none focus:ring-2 focus:ring-sky-400">
+              <Linkedin className="h-5 w-5" aria-hidden="true" />
+            </a>
+            <a href="https://x.com/Rajansh26003523" target="_blank" rel="noopener noreferrer" aria-label="X profile" className="text-gray-400 transition-colors hover:text-white focus:outline-none focus:ring-2 focus:ring-sky-400">
+              <FaTwitter className="h-5 w-5" aria-hidden="true" />
+            </a>
+            <a href="https://www.facebook.com/rajana.gupta.805984" target="_blank" rel="noopener noreferrer" aria-label="Facebook profile" className="text-gray-400 transition-colors hover:text-white focus:outline-none focus:ring-2 focus:ring-sky-400">
+              <Facebook className="h-5 w-5" aria-hidden="true" />
+            </a>
           </div>
         </div>
 
-        {/* Bottom Footer */}
-        <div className="border-t border-gray-800 py-8">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-center md:text-left text-gray-400">© 2024 Rajan Kumar Gupta. All rights reserved.</p>
-          </div>
+        <nav aria-label="Footer navigation">
+          <h3 className="mb-4 text-sm font-semibold text-white">Quick links</h3>
+          <ul className="space-y-2 text-sm">
+            {navigation.map((item) => (
+              <li key={item.href}>
+                <a href={item.href} className="text-gray-400 transition-colors hover:text-white focus:outline-none focus:ring-2 focus:ring-sky-400">
+                  {item.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+
+        <div>
+          <h3 className="mb-4 text-sm font-semibold text-white">Contact</h3>
+          <ul className="space-y-3 text-sm">
+            <li>
+              <a href="mailto:shahrajan774@gmail.com" className="flex items-center gap-3 text-gray-400 transition-colors hover:text-white">
+                <Mail className="h-4 w-4 shrink-0 text-sky-400" aria-hidden="true" />
+                <span className="break-all">shahrajan774@gmail.com</span>
+              </a>
+            </li>
+            <li>
+              <a href="tel:+9779867488761" className="flex items-center gap-3 text-gray-400 transition-colors hover:text-white">
+                <Phone className="h-4 w-4 shrink-0 text-sky-400" aria-hidden="true" />
+                <span>+977-9867488761</span>
+              </a>
+            </li>
+            <li className="flex items-center gap-3 text-gray-400">
+              <MapPin className="h-4 w-4 shrink-0 text-sky-400" aria-hidden="true" />
+              <span>Ramgram-3, Parasi, Nawalparasi</span>
+            </li>
+          </ul>
         </div>
       </div>
-    </footer>
-  );
-};
+
+      <div className="mt-8 border-t border-gray-700 pt-4 text-xs text-gray-500">
+        <p>© {new Date().getFullYear()} Rajan Kumar Gupta</p>
+      </div>
+    </div>
+  </footer>
+);
 
 export default Footer;

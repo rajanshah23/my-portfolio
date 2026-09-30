@@ -9,7 +9,6 @@ import Education from "./sections/Education";
 import Contact from "./sections/Contact";
 import DevOpsCaseStudies from "./sections/DevOpsCaseStudies";
 import DevOpsTimeline from "./sections/DevOpsTimeline";
-import Blog from "./sections/Blog";
 import GitHubProjects from "./sections/GitHubProjects";
 import Footer from "./components/NewFooter";
 import ProjectModal from "./components/ProjectModal";
@@ -61,7 +60,6 @@ function App() {
         <DevOpsTimeline />
         <Certifications />
         <Education />
-        <Blog />
         <GitHubProjects />
         <Contact />
         <Footer />

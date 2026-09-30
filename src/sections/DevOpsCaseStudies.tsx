@@ -1,6 +1,5 @@
 import { useInView } from "../hooks/useInView";
 import CaseStudyCard from "../components/CaseStudyCard";
-import CICDPipeline from "../components/CICDPipeline";
 
 const DevOpsCaseStudies = () => {
   const { ref, inView } = useInView({ threshold: 0.1 });
@@ -12,11 +11,32 @@ const DevOpsCaseStudies = () => {
           <h2 className="mb-4 text-3xl font-bold text-slate-900 lg:text-4xl">DevOps Case Studies</h2>
           <p className="mx-auto max-w-3xl text-lg text-gray-600">Hands-on delivery work, documented with the tools, constraints, and operational decisions behind it.</p>
         </div>
-        <div className={`mb-10 ${inView ? "animate-fade-in-up" : "opacity-0"}`}>
-          <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-blue-600">WordPress delivery path</p>
-          <CICDPipeline />
-        </div>
-        <div className={`grid grid-cols-1 gap-8 ${inView ? "animate-fade-in" : "opacity-0"}`}>
+        <div className={`grid grid-cols-1 gap-6 md:grid-cols-2 ${inView ? "animate-fade-in" : "opacity-0"}`}>
+          <CaseStudyCard
+            title="Building a Containerized API with Prometheus & Grafana Observability"
+            label="Implemented project"
+            summary="The goal is a locally reproducible DevOps stack that packages a Node.js REST API with Docker, scrapes its Prometheus metrics, and visualizes them in a Grafana dashboard provisioned from code. Docker Compose runs the API, Prometheus, and Grafana together without requiring a cloud account."
+            problem="Ship a service with production-shaped concerns, including a non-root runtime, graceful shutdown, and health probes, without needing a cloud account."
+            architecture="Docker Compose runs api, prometheus, and grafana on a shared network."
+            tools={["Node.js 20", "Express", "Jest", "Supertest", "Docker", "Docker Compose", "Prometheus", "Grafana", "Alpine Linux", "GitHub Actions-ready"]}
+            implementation={[
+              "Multi-stage Dockerfile with a HEALTHCHECK and a non-root runtime user (UID 10001).",
+              "Express middleware records http_requests_total and http_request_duration_seconds.",
+              "Docker Compose wires api, prometheus, and grafana on a shared network.",
+              "Prometheus scrapes /metrics every 15 seconds.",
+              "Grafana dashboard and datasource are provisioned from JSON/YAML files for reproducibility from a fresh clone.",
+              "Run: docker run --rm -p 3000:3000 rajanshah23/devops-lab-pipeline:1.0.0",
+            ]}
+            security="The multi-stage image uses a non-root runtime user with UID 10001 and defines a container HEALTHCHECK."
+            monitoring="Prometheus scrapes /metrics every 15 seconds; the provisioned Grafana dashboard shows Request Rate, 5xx Error Rate, p95 Latency, and Node Heap Used."
+            challenges="The stack addresses non-root execution, graceful shutdown, and health probes in a local environment without a cloud account."
+            result="The four-panel golden-signals dashboard covers request rate, 5xx error rate, p95 latency, and Node heap. Zero-downtime graceful shutdown was verified via SIGTERM, and the public Docker image can be pulled in one command."
+            github="https://github.com/rajanshah23/devops-lab-pipeline"
+            dockerHub="https://hub.docker.com/r/rajanshah23/devops-lab-pipeline"
+            screenshots={["/dashboard.png"]}
+            screenshotAlt="Grafana dashboard with Request Rate, 5xx Error Rate, p95 Latency, and Node Heap Used panels"
+            status="implemented"
+          />
           <CaseStudyCard
             title="WordPress DevOps CI/CD Pipeline"
             label="Implemented project"

@@ -45,6 +45,32 @@ const projects: ProjectWithDetails[] = [
     ],
   },
   {
+    id: "devops-lab-pipeline",
+    category: "DevOps",
+    title: "devops-lab-pipeline",
+    subtitle: "Containerized Node.js API with Prometheus and Grafana observability",
+    description:
+      "A Node.js REST API packaged with Docker, run alongside Prometheus and Grafana via Docker Compose. Demonstrates the first four layers of a modern DevOps stack: application, tests, container, and observability.",
+    image: "/dashboard.png",
+    technologies: ["Node.js", "Express", "Docker", "Docker Compose", "Prometheus", "Grafana", "Jest"],
+    repositoryUrl: "https://github.com/rajanshah23/devops-lab-pipeline",
+    dockerHubUrl: "https://hub.docker.com/r/rajanshah23/devops-lab-pipeline",
+    links: {
+      github: "https://github.com/rajanshah23/devops-lab-pipeline",
+    },
+    detailedDescription: [
+      "A multi-stage Dockerfile produces a Node.js 20 Alpine Linux runtime image running as non-root UID 10001.",
+      "Express exposes health, readiness, and Prometheus metrics endpoints; Prometheus scrapes /metrics every 15 seconds.",
+      "Docker Compose runs api, prometheus, and grafana together; a JSON-provisioned dashboard shows Request Rate, 5xx Error Rate, p95 Latency, and Node Heap Used.",
+    ],
+    features: [
+      "9 Jest + Supertest tests with 100% coverage.",
+      "Published to GitHub Container Registry and Docker Hub as rajanshah23/devops-lab-pipeline:1.0.0.",
+      "GitHub Actions-ready.",
+      "Run: docker run --rm -p 3000:3000 rajanshah23/devops-lab-pipeline:1.0.0",
+    ],
+  },
+  {
     id: "project1",
     category: "Full Stack",
     title: "Theatre Booking System",
@@ -271,6 +297,11 @@ const Projects = ({ onProjectSelect }: ProjectsProps) => {
                 <h3 className="text-xl font-bold mb-3 text-gray-800 group-hover:text-blue-600 transition-colors duration-300">
                   {project.title}
                 </h3>
+                {project.subtitle && (
+                  <p className="-mt-1 mb-3 text-sm font-medium text-gray-600">
+                    {project.subtitle}
+                  </p>
+                )}
                 {project.category && (
                   <span className="mb-3 inline-flex rounded-full border border-blue-100 bg-blue-50 px-3 py-1 text-xs font-semibold text-blue-700">
                     {project.category}

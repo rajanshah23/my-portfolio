@@ -1,4 +1,4 @@
-import { X, Github, ExternalLink } from 'lucide-react';
+import { X, Github, ExternalLink, Package } from 'lucide-react';
 import { ProjectType } from '../types';
 import { useEffect, useRef } from 'react';
 
@@ -78,7 +78,10 @@ const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
         <div ref={dialogRef} className="bg-white rounded-2xl max-w-5xl w-full animate-scale-up" role="dialog" aria-modal="true" aria-labelledby="project-modal-title" tabIndex={-1}>
           {/* Header */}
           <div className="flex justify-between items-center p-6 border-b border-gray-200">
-            <h2 id="project-modal-title" className="text-2xl font-bold text-gray-800">{project.title}</h2>
+            <div>
+              <h2 id="project-modal-title" className="text-2xl font-bold text-gray-800">{project.title}</h2>
+              {project.subtitle && <p className="mt-1 text-sm text-gray-600">{project.subtitle}</p>}
+            </div>
             <button 
               ref={closeButtonRef}
               type="button"
@@ -171,13 +174,26 @@ const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
 
             {/* Links */}
             <div className="flex flex-wrap gap-4">
-              {project.links.github && (
+              {(project.repositoryUrl || project.links.github) && (
                 <a 
-                  href={project.links.github}
+                  href={project.repositoryUrl || project.links.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center px-6 py-3 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition-colors"
                 >
                   <Github className="w-5 h-5 mr-2" />
                   View on GitHub
+                </a>
+              )}
+              {project.dockerHubUrl && (
+                <a
+                  href={project.dockerHubUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center px-6 py-3 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition-colors"
+                >
+                  <Package className="w-5 h-5 mr-2" />
+                  View on Docker Hub
                 </a>
               )}
               {project.links.live && (

@@ -21,7 +21,6 @@ const MobileNav = ({ isOpen, toggleMenu, activeSection }: MobileNavProps) => {
     { id: 'timeline', label: 'DevOps Timeline' },
     { id: 'certifications', label: 'Certifications' },
     { id: 'education', label: 'Education' },
-    { id: 'blog', label: 'Technical Blog' },
     { id: 'github', label: 'GitHub Projects' },
   ];
   const socialLinks = [
@@ -60,8 +59,12 @@ const MobileNav = ({ isOpen, toggleMenu, activeSection }: MobileNavProps) => {
     if (!isOpen) return;
 
     const menuButton = menuButtonRef.current;
+    const previousBodyOverflow = document.body.style.overflow;
+    const previousDocumentOverflow = document.documentElement.style.overflow;
     const firstFocusableElement = navigationRef.current?.querySelector<HTMLElement>('a, button');
     firstFocusableElement?.focus();
+    document.body.style.overflow = 'hidden';
+    document.documentElement.style.overflow = 'hidden';
 
     const handleEscape = (event: KeyboardEvent) => {
       if (event.key === 'Escape') toggleMenu();
@@ -70,6 +73,8 @@ const MobileNav = ({ isOpen, toggleMenu, activeSection }: MobileNavProps) => {
     document.addEventListener('keydown', handleEscape);
     return () => {
       document.removeEventListener('keydown', handleEscape);
+      document.body.style.overflow = previousBodyOverflow;
+      document.documentElement.style.overflow = previousDocumentOverflow;
       menuButton?.focus();
     };
   }, [isOpen, toggleMenu]);
@@ -120,10 +125,10 @@ const MobileNav = ({ isOpen, toggleMenu, activeSection }: MobileNavProps) => {
   aria-label="Mobile navigation"
   role="dialog"
   aria-modal="true"
-  className={`lg:hidden fixed inset-y-0 left-0 w-64 bg-white z-40 transform transition-transform duration-300 ease-in-out
+  className={`lg:hidden fixed bottom-0 left-0 top-[118px] w-64 bg-white z-40 transform transition-transform duration-300 ease-in-out
     ${isOpen ? "translate-x-0" : "-translate-x-full pointer-events-none"}`}
 >
-  <div className="pt-16 flex flex-col h-full border-r border-gray-200">
+  <div className="flex flex-col h-full border-r border-gray-200">
     <div className="flex-1 overflow-y-auto px-4 py-6 space-y-2">
       {primaryItems.map(renderNavItem)}
       <button

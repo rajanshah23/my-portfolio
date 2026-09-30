@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { ChevronDown, Home, User, Code, Folder, FileText, Book, Mail, Workflow, Milestone, BookOpen, Github } from "lucide-react";
+import { ChevronDown, Home, User, Code, Folder, FileText, Book, Mail, Workflow, Milestone, Github } from "lucide-react";
 
 type SidebarProps = {
   activeSection: string;
@@ -22,7 +22,6 @@ const Sidebar = ({ activeSection }: SidebarProps) => {
       icon: <FileText size={18} />,
     },
     { id: "education", label: "Education", icon: <Book size={18} /> },
-    { id: "blog", label: "Technical Blog", icon: <BookOpen size={18} /> },
     { id: "github", label: "GitHub Projects", icon: <Github size={18} /> },
   ];
   const moreIsActive = moreItems.some((item) => item.id === activeSection);
