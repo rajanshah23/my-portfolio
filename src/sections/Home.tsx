@@ -7,11 +7,9 @@ const Home = () => {
 
   const strings = useMemo(
     () => [
-      "Electronics, Communication and Information Engineer",
-      "MERN Stack Developer",
-      "DevOps Engineer",
-      "Problem Solver",
-      "Backend Developer"
+      "Backend & Full-Stack Developer",
+      "DevOps Practitioner",
+      "MERN Stack Developer"
     ],
     []
   );
@@ -72,12 +70,16 @@ const Home = () => {
               ></span>
             </div>
 
+            <p className="text-base sm:text-lg font-medium text-gray-700 mb-6 lg:mb-8">
+              Electronics Engineer | Backend &amp; Full-Stack Development | DevOps
+            </p>
+
             <p className="text-gray-600 mb-6 lg:mb-8 leading-relaxed max-w-2xl mx-auto lg:mx-0 text-justify lg:text-left">
-              I'm an Electronics, Communication and Information Engineer and
-              DevOps practitioner passionate about bridging the gap between
-              hardware and software. I build full-stack applications and
-              automate reliable deployments with Docker, Kubernetes, GitHub
-              Actions, Ansible, and cloud-native monitoring tools.
+              Electronics, Communication and Information Engineering graduate
+              and backend/full-stack developer with experience in MERN, REST
+              APIs, PostgreSQL/Supabase, and hands-on DevOps projects using
+              Docker, Kubernetes (k3s), GitHub Actions CI/CD, Helm, Ansible,
+              Prometheus, and Grafana on AlmaLinux.
             </p>
 
             <div className="flex flex-wrap gap-3 sm:gap-4 justify-center lg:justify-start">
@@ -94,8 +96,9 @@ const Home = () => {
                 View Projects
               </a>
               
+              {/* TODO: Add the updated DevOps CV PDF at this path. */}
               <a
-                href="/Rajan_Kumar_Gupta_CV.pdf"  
+                href="/Rajan_Kumar_Gupta_CV.pdf"
                 download="Rajan_Kumar_Gupta_CV.pdf"
                 className="px-6 py-2 sm:px-8 sm:py-3 bg-blue-600 text-white rounded-full hover:bg-gray-900 transition-all text-sm sm:text-base"
               >

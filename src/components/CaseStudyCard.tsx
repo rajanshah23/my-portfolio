@@ -173,12 +173,12 @@ const CaseStudyCard = ({ title, label, summary, problem, architecture, tools, im
                 <p className="mb-8 leading-relaxed text-gray-600">{summary}</p>
 
                 <div className="grid gap-5 md:grid-cols-2">
-                  <div><h3 className="font-semibold text-slate-900">Problem</h3><p className="mt-1 text-sm leading-relaxed text-gray-600">{problem}</p></div>
-                  <div><h3 className="font-semibold text-slate-900">Architecture</h3><p className="mt-1 text-sm leading-relaxed text-gray-600">{architecture}</p></div>
-                  <div><h3 className="font-semibold text-slate-900">Security</h3><p className="mt-1 text-sm leading-relaxed text-gray-600">{security}</p></div>
-                  <div><h3 className="font-semibold text-slate-900">Monitoring</h3><p className="mt-1 text-sm leading-relaxed text-gray-600">{monitoring}</p></div>
-                  <div><h3 className="font-semibold text-slate-900">Challenges</h3><p className="mt-1 text-sm leading-relaxed text-gray-600">{challenges}</p></div>
-                  <div><h3 className="font-semibold text-slate-900">Result</h3><p className="mt-1 text-sm leading-relaxed text-gray-600">{result}</p></div>
+                  {problem && <div><h3 className="font-semibold text-slate-900">Problem</h3><p className="mt-1 text-sm leading-relaxed text-gray-600">{problem}</p></div>}
+                  {architecture && <div><h3 className="font-semibold text-slate-900">Architecture</h3><p className="mt-1 text-sm leading-relaxed text-gray-600">{architecture}</p></div>}
+                  {security && <div><h3 className="font-semibold text-slate-900">Security</h3><p className="mt-1 text-sm leading-relaxed text-gray-600">{security}</p></div>}
+                  {monitoring && <div><h3 className="font-semibold text-slate-900">Monitoring</h3><p className="mt-1 text-sm leading-relaxed text-gray-600">{monitoring}</p></div>}
+                  {challenges && <div><h3 className="font-semibold text-slate-900">Challenges</h3><p className="mt-1 text-sm leading-relaxed text-gray-600">{challenges}</p></div>}
+                  {result && <div><h3 className="font-semibold text-slate-900">Result</h3><p className="mt-1 text-sm leading-relaxed text-gray-600">{result}</p></div>}
                 </div>
 
                 <div className="mt-8 border-t border-gray-100 pt-5">

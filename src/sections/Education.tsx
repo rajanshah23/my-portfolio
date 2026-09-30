@@ -7,33 +7,23 @@ import { useInView } from "../hooks/useInView";
 const educationItems = [
   {
     id: 'university',
-    degree: 'Bachelor of Electronics and Computer Engineering',
-    institution: 'Tribhuvan University',
+    degree: 'Bachelor in Electronics, Communication and Information Engineering',
+    institution: 'Paschimanchal Campus, Tribhuvan University',
     period: '2021 - 2025',
-    description: 'Specializing in both hardware and software systems, with a focus on designing innovative solutions in electronics, computer engineering, and embedded systems. Gaining hands-on experience in embedded systems, circuit design, software development, and systems engineering.',
-    achievements: ['ECG Monitoring System', 'Smart Stick For Visually impaired'],
+    description: 'Bachelor in Electronics, Communication and Information Engineering at Paschimanchal Campus, Tribhuvan University, Pokhara, Nepal.',
+    achievements: ['ECG Monitoring System', 'Obstacle Detection for Visually Impaired'],
     color: 'blue',
     position: 'right',
   },
   {
     id: 'highschool',
-    degree: '+2 Science',
+    degree: 'Higher Secondary Education',
     institution: "Kalika Manavgyan Secondary School",
     period: '2018 - 2020',
-    description: 'Completed +2 Science with a focus on Physics, Mathematics, and Computer Science, building a solid foundation in scientific principles and analytical thinking.',
-    achievements: ['Developed strong problem-solving and analytical skills'],
+    description: 'Higher Secondary Education at Kalika Manavgyan Secondary School, Butwal, Nepal.',
+    achievements: [],
     color: 'purple',
     position: 'left',
-  },
-  {
-    id: 'middleschool',
-    degree: 'SEE',
-    institution: 'Little Angel`s High School',
-    period: '2005 - 2018',
-    description: 'Early exposure to programming and robotics. Participated in national science competitions.',
-    achievements: ['Robotics Team', 'Quiz competition'],
-    color: 'green',
-    position: 'right',
   },
 ];
 
@@ -199,6 +189,23 @@ const Education = () => {
               </div>
             ))}
           </div>
+        </div>
+
+        <div className="mx-auto mt-16 max-w-4xl">
+          <h2 className="mb-6 text-2xl font-bold text-gray-800">Publications</h2>
+          <article className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
+            <p className="leading-relaxed text-gray-700">
+              A. Laudari Bhat, B. KC Khatri, G. Rijal, R. K. Gupta, S. Adhikari, "Obstacle Detection for Visually Impaired," Proceedings of IOE Graduate Conference, Vol. 16, pp. 1913–1919, April 2025.
+            </p>
+            <a
+              href="https://lnkd.in/g8TuWbnm"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-3 inline-flex text-sm font-medium text-blue-700 hover:text-blue-800"
+            >
+              View publication
+            </a>
+          </article>
         </div>
       </div>
     </section>

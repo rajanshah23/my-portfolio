@@ -1,11 +1,9 @@
 import { useInView } from "../hooks/useInView";
 import { ProjectType } from "../types";
-import { Github, ExternalLink, ChevronDown, ChevronUp } from "lucide-react";
+import { Github, ExternalLink } from "lucide-react";
 import { useState } from "react";
 
-type ProjectWithDetails = ProjectType & {
-  detailedDescription?: string[];
-};
+type ProjectWithDetails = ProjectType;
 
 const projects: ProjectWithDetails[] = [
   {
@@ -13,7 +11,7 @@ const projects: ProjectWithDetails[] = [
     category: "DevOps",
     title: "WordPress DevOps CI/CD Pipeline",
     description:
-      "End-to-end deployment automation for WordPress using Docker, Kubernetes (k3s), GitHub Actions, Helm, Prometheus, and Ansible on a minimal AlmaLinux 9 VM.",
+      "Built and run in a personal lab environment. End-to-end deployment automation for WordPress using Docker, Kubernetes (k3s), GitHub Actions, Helm, Prometheus, and Ansible on an AlmaLinux 9 VM.",
     image: "/screenshots/wordpress-cicd/main.png",
     technologies: [
       "AlmaLinux 9",
@@ -35,13 +33,14 @@ const projects: ProjectWithDetails[] = [
       "/screenshots/wordpress-cicd/wordpress.png",
       "/screenshots/wordpress-cicd/grafana.png",
     ],
+    screenshotCaptions: ["GitHub Actions pipeline", "k3s workload view", "WordPress frontend", "Grafana dashboard"],
     detailedDescription: [
-      "Provisioned a minimal AlmaLinux 9 VM in Oracle VirtualBox with strict resource limits (2GB RAM).",
-      "Containerized WordPress with Docker Compose for local development and testing.",
-      "Set up a self-hosted GitHub Actions runner to build Docker images and push them to a registry.",
-      "Orchestrated the deployment on Kubernetes (k3s) using Helm charts for scalability.",
-      "Integrated Prometheus and Grafana for real-time monitoring and alerting.",
-      "Automated firewall and networking rules to securely expose the WordPress service.",
+      "Built an AlmaLinux 9 VM in VirtualBox (2 GB RAM) with static IP networking, a non-root sudo user, and an XFS secondary disk mounted via /etc/fstab.",
+      "Containerized WordPress and MySQL with Docker Compose, using named volumes and a custom Docker network.",
+      "Configured a self-hosted GitHub Actions runner as a systemd service; the workflow deploys the stack on every push to main, with credentials in GitHub Secrets.",
+      "Deployed to k3s with kubectl and manifests (Namespace, Secret, ConfigMap, PV/PVC, Deployments, Services, Traefik Ingress) and a CPU-based HPA scaling WordPress from 1 to 3 replicas via Metrics Server.",
+      "Created a reusable Helm chart and installed kube-prometheus-stack for Prometheus and Grafana monitoring.",
+      "Wrote an Ansible playbook with roles (common, Docker, k3s, Helm, WordPress, monitoring) to automate setup on a fresh VM.",
     ],
   },
   {
@@ -50,7 +49,7 @@ const projects: ProjectWithDetails[] = [
     title: "devops-lab-pipeline",
     subtitle: "Containerized Node.js API with Prometheus and Grafana observability",
     description:
-      "A Node.js REST API packaged with Docker, run alongside Prometheus and Grafana via Docker Compose. Demonstrates the first four layers of a modern DevOps stack: application, tests, container, and observability.",
+      "A Node.js REST API packaged with Docker, run alongside Prometheus and Grafana via Docker Compose. Demonstrates application, tests, containerization, and observability.",
     image: "/dashboard.png",
     technologies: ["Node.js", "Express", "Docker", "Docker Compose", "Prometheus", "Grafana", "Jest"],
     repositoryUrl: "https://github.com/rajanshah23/devops-lab-pipeline",
@@ -64,31 +63,34 @@ const projects: ProjectWithDetails[] = [
       "Docker Compose runs api, prometheus, and grafana together; a JSON-provisioned dashboard shows Request Rate, 5xx Error Rate, p95 Latency, and Node Heap Used.",
     ],
     features: [
-      "9 Jest + Supertest tests with 100% coverage.",
-      "Published to GitHub Container Registry and Docker Hub as rajanshah23/devops-lab-pipeline:1.0.0.",
-      "GitHub Actions-ready.",
-      "Run: docker run --rm -p 3000:3000 rajanshah23/devops-lab-pipeline:1.0.0",
+      "Docker healthcheck and non-root runtime user.",
+      "Automated tests with Jest and Supertest, plus ESLint configuration.",
+      "Image published to Docker Hub.",
     ],
+        screenshots: ["/dashboard.png"],
+        screenshotCaptions: ["Prometheus and Grafana observability dashboard"],
   },
   {
     id: "project1",
     category: "Full Stack",
+    additionalCategories: ["Backend"],
     title: "Theatre Booking System",
     description:
-      "A modern and responsive frontend for an online theatre booking platform, designed to provide a seamless user experience for browsing shows, booking seats, making payments, and managing profile.",
+      "Full-stack app (React, TypeScript, Tailwind CSS, Node.js, Express, PostgreSQL with Supabase) with JWT auth, real-time seat booking, Khalti payment, reviews, admin dashboard and Supabase image storage.",
     image: "/screenshots/Home.png",
-    technologies: ["React", "Node.js", "PostgreSQL"],
+    technologies: ["React", "TypeScript", "Tailwind CSS", "Node.js", "Express", "PostgreSQL", "Supabase"],
     links: {
-      github: "https://github.com/rajanshah23/frontend-Theatre-booking-system",
+      github: "https://github.com/rajanshah23/TheatreBooking-System",
     },
     screenshots: [
       "/screenshots/Home.png",
-      "/screenshots/FeaturedShow.png",
+      "/screenshots/Featuredshow.png",
       "/screenshots/Stayupdated.png",
       "/screenshots/Browseshow.png",
       "/screenshots/Mybooking.png",
       "/screenshots/Bookticket.png",
     ],
+    screenshotCaptions: ["Theatre booking home page", "Featured shows", "Stay updated section", "Browse shows", "My bookings", "Ticket booking"],
     features: [
       "Real-time seat availability tracking",
       "Secure payment integration with Khalti",
@@ -97,21 +99,21 @@ const projects: ProjectWithDetails[] = [
       "Admin dashboard for show and user management",
     ],
     technicalDetails: [
-      "Frontend: React, Redux, Tailwind CSS",
-      "Backend: Node.js, Express, Sequelize",
-      "Database: PostgreSQL (Supabase)",
-      "Authentication: JWT + Supabase Auth",
+      "Frontend: React, TypeScript, Tailwind CSS",
+      "Backend: Node.js, Express",
+      "Database: PostgreSQL with Supabase",
+      "Authentication: JWT",
       "Payment: Khalti API",
     ],
   },
   {
     id: "project2",
     category: "Full Stack",
-    title: "Online shopping center",
+    title: "Online Shopping Center",
     description:
       "Online Shopping Center is a full-stack e-commerce web application developed using the MERN stack (MongoDB, Express.js, React, Node.js). The platform provides a seamless online shopping experience with features like product browsing, search and filter, cart management, order processing, and secure user authentication.",
     image: "/screenshots/mernstack.png",
-    technologies: ["MERN"],
+    technologies: ["MongoDB", "Express", "React", "Node.js"],
     links: {
       github: "https://github.com/rajanshah23/MERN-Stack",
     },
@@ -120,6 +122,7 @@ const projects: ProjectWithDetails[] = [
       "/screenshots/mern1.png",
       "/screenshots/mern2.png",
     ],
+    screenshotCaptions: ["Online Shopping Center: mernstack.png", "Online Shopping Center: mern1.png", "Online Shopping Center: mern2.png"],
   },
   {
     id: "Library Management System-api",
@@ -143,6 +146,7 @@ const projects: ProjectWithDetails[] = [
       "/screenshots/image2.png",
       "/screenshots/image3.png",
     ],
+    screenshotCaptions: ["Library Management System: lms diagram.png", "Library Management System: image1.png", "Library Management System: image2.png", "Library Management System: image3.png"],
 
     features: [
       "CRUD operations for Authors and Books",
@@ -164,28 +168,40 @@ const projects: ProjectWithDetails[] = [
   {
     id: "project3",
     category: "Full Stack",
-    title: "PasteApp",
+    title: "Paste App",
     description:
-      "A simple yet powerful Paste App built with React, Redux, and LocalStorage that lets you effortlessly create, edit, copy, and manage your text snippets in one place!",
+      "A lightweight text snippet manager built with React, Redux Toolkit, LocalStorage, Tailwind CSS, and React Hot Toast notifications.",
     image: "/screenshots/paste1.png",
-    technologies: ["React", "Redux", "Localstorage"],
+    technologies: ["React", "Redux Toolkit", "LocalStorage", "Tailwind CSS", "React Hot Toast"],
     links: {
       github: "https://github.com/rajanshah23/PasteApp",
     },
     screenshots: ["/screenshots/paste1.png", "/screenshots/paste2.png"],
+    screenshotCaptions: ["Paste App: paste1.png", "Paste App: paste2.png"],
   },
   {
     id: "project4",
     category: "Full Stack",
-    title: "Currency Converter",
+    title: "Currency Converter Web App",
     description:
-      "A Currency Converter web application that allows users to convert amounts from one currency to another using real-time exchange rates. This project fetches up-to-date currency exchange rates from a reliable API and provides an easy-to-use interface for quick currency conversions.",
+      "Responsive web app for real-time currency conversion using REST APIs, HTML, CSS, and JavaScript.",
     image: "/screenshots/Currency.png",
-    technologies: ["Html", "CSS", "Javascript"],
+    technologies: ["HTML", "CSS", "JavaScript", "REST APIs"],
     links: {
       github: "https://github.com/rajanshah23/Currency-Converter",
     },
     screenshots: ["/screenshots/Currency.png"],
+    screenshotCaptions: ["Currency Converter Web App: Currency.png"],
+  },
+  {
+    id: "incorpoflow",
+    category: "Full Stack",
+    title: "IncorpoFlow: Company Incorporation Tool",
+    description:
+      "Multi-step company registration app with draft persistence across browser refreshes and an admin dashboard listing companies with shareholders. Built with React (Vite), Node.js, Express, PostgreSQL (Sequelize), and Docker Compose for PostgreSQL, backend, and Nginx-served frontend in a one-command setup.",
+    technologies: ["React (Vite)", "Node.js", "Express", "PostgreSQL", "Sequelize", "Docker Compose"],
+    links: {},
+    // TODO: Add a verified GitHub URL and project screenshot when provided.
   },
 ];
 
@@ -195,19 +211,14 @@ type ProjectsProps = {
 
 const Projects = ({ onProjectSelect }: ProjectsProps) => {
   const { ref, inView } = useInView({ threshold: 0.1 });
-  const [showAll, setShowAll] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState("All");
 
   const categories = ["All", "Full Stack", "Backend", "DevOps", "Embedded Systems"];
   const filteredProjects = selectedCategory === "All"
     ? projects
-    : projects.filter((project) => project.category === selectedCategory);
-
-  const visibleProjects = showAll ? filteredProjects : filteredProjects.slice(0, 3);
-
-  const handleToggle = () => {
-    setShowAll(!showAll);
-  };
+    : projects.filter((project) =>
+        [project.category, ...(project.additionalCategories || [])].includes(selectedCategory as ProjectType["category"])
+      );
 
   return (
     <section
@@ -246,7 +257,6 @@ const Projects = ({ onProjectSelect }: ProjectsProps) => {
               type="button"
               onClick={() => {
                 setSelectedCategory(category);
-                setShowAll(false);
               }}
               aria-pressed={selectedCategory === category}
               className={`rounded-full border px-4 py-2 text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 ${
@@ -261,7 +271,7 @@ const Projects = ({ onProjectSelect }: ProjectsProps) => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {visibleProjects.map((project, index) => (
+          {filteredProjects.map((project, index) => (
             <div
               key={project.id}
               className={`group bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl border border-gray-100 transform hover:-translate-y-3 transition-all duration-500 ${
@@ -275,14 +285,18 @@ const Projects = ({ onProjectSelect }: ProjectsProps) => {
                 onClick={() => onProjectSelect(project)}
                 aria-label={`View details for ${project.title}`}
               >
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  onError={(event) => {
-                    event.currentTarget.src = "/screenshots/Home.png";
-                  }}
-                  className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
-                />
+                {project.image ? (
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    onError={(event) => {
+                      event.currentTarget.style.display = "none";
+                    }}
+                    className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
+                  />
+                ) : (
+                  <span className="flex h-full items-center justify-center bg-gray-100 text-sm text-gray-500">Screenshot not provided</span>
+                )}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
                   <div className="text-center transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
                     <span className="text-white text-lg font-semibold block mb-2">
@@ -373,27 +387,6 @@ const Projects = ({ onProjectSelect }: ProjectsProps) => {
           ))}
         </div>
 
-        {/* Enhanced Show More/Less button */}
-        {filteredProjects.length > 3 && (
-          <div className="text-center mt-12">
-            <button
-              onClick={handleToggle}
-              className="group inline-flex items-center gap-2 px-8 py-3.5  bg-blue-600 text-white rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 font-medium"
-            >
-              {showAll ? (
-                <>
-                  See Less Projects
-                  <ChevronUp className="w-2 h-2 group-hover:-translate-y-1 transition-transform duration-300" />
-                </>
-              ) : (
-                <>
-                  See More Projects
-                  <ChevronDown className="w-2 h-2 group-hover:translate-y-1 transition-transform duration-300" />
-                </>
-              )}
-            </button>
-          </div>
-        )}
       </div>
 
       <style>{`

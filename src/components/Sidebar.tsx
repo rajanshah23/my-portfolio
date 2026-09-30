@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { ChevronDown, Home, User, Code, Folder, FileText, Book, Mail, Workflow, Milestone, Github } from "lucide-react";
+import { ChevronDown, Home, User, Code, Folder, FileText, Book, Mail, Workflow, Milestone, Github, Briefcase } from "lucide-react";
 
 type SidebarProps = {
   activeSection: string;
@@ -13,6 +13,7 @@ const Sidebar = ({ activeSection }: SidebarProps) => {
     { id: "projects", label: "Projects", icon: <Folder size={18} /> },
     { id: "case-studies", label: "DevOps Case Studies", icon: <Workflow size={18} /> },
     { id: "contact", label: "Contact", icon: <Mail size={18} /> },
+    { id: "experience", label: "Experience & Training", icon: <Briefcase size={18} /> },
   ];
   const moreItems = [
     { id: "timeline", label: "DevOps Timeline", icon: <Milestone size={18} /> },

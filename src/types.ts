@@ -10,16 +10,18 @@ export type ProjectType = {
   title: string;
   subtitle?: string;
   description: string;
-  image: string;
+  image?: string;
   technologies: string[];
   links: ProjectLinks;
   repositoryUrl?: string;
   dockerHubUrl?: string;
   screenshots?: string[];
+  screenshotCaptions?: string[];
   features?: string[];
   technicalDetails?: string[];
   detailedDescription?: string[];
   category?: "Full Stack" | "Backend" | "DevOps" | "Embedded Systems";
+  additionalCategories?: Array<"Full Stack" | "Backend" | "DevOps" | "Embedded Systems">;
 };
 
 export type CertificationType = {
@@ -27,8 +29,12 @@ export type CertificationType = {
   title: string;
   issuer: string;
   issueDate: string;
+  dateLabel?: string;
+  trainingPeriod?: string;
+  certificateNumber?: string;
+  linkLabel?: string;
   expiryDate?: string;
-  logo: string;
+  logo?: string;
   color: string;
   link?: string;
 };

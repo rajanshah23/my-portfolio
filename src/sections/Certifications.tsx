@@ -4,6 +4,18 @@ import { ExternalLink } from "lucide-react";
 
 const certifications: CertificationType[] = [
   {
+    id: "tech-axis-devops",
+    title: "DevOps Training",
+    issuer: "Tech Axis Pvt. Ltd.",
+    issueDate: "August 7, 2026",
+    dateLabel: "Completed",
+    trainingPeriod: "April 28 – August 7, 2026",
+    logo: "",
+    color: "green",
+    link: "/certificate/DevopsCertification.pdf",
+    linkLabel: "View Certificate",
+  },
+  {
     id: "HackerRank",
     title: "React (Basic) Certificate",
     issuer: "HackerRank",
@@ -23,9 +35,10 @@ const certifications: CertificationType[] = [
   },
   {
     id: " MERN Stack",
-    title: "MERN Stack",
+    title: "MERN Stack Internship Certificate",
     issuer: "Digital Pathshala",
-    issueDate: "May 5 2025",
+    // TODO: Confirm the certificate issue date; May 5, 2025 is the internship start date.
+    issueDate: "Date unconfirmed",
     expiryDate: undefined,
     logo: "https://wallpaperaccess.com/full/9445603.jpg",
     color: "purple",
@@ -36,6 +49,7 @@ const certifications: CertificationType[] = [
 const certificationColorClasses: Record<string, { background: string; text: string; hoverText: string }> = {
   blue: { background: 'bg-blue-500', text: 'text-blue-600', hoverText: 'hover:text-blue-700' },
   purple: { background: 'bg-purple-500', text: 'text-purple-600', hoverText: 'hover:text-purple-700' },
+  green: { background: 'bg-green-500', text: 'text-green-700', hoverText: 'hover:text-green-800' },
 };
 
 const Certifications = () => {
@@ -65,11 +79,11 @@ const Certifications = () => {
                 <div
                   className={`flex-shrink-0 w-16 h-16 ${certificationColorClasses[cert.color].background} rounded-lg flex items-center justify-center`}
                 >
-                  <img
-                    src={cert.logo}
-                    alt={cert.issuer}
-                    className="w-10 h-10 object-contain"
-                  />
+                  {cert.logo ? (
+                    <img src={cert.logo} alt={cert.issuer} className="h-10 w-10 object-contain" />
+                  ) : (
+                    <span className="text-xl font-bold text-white">TA</span>
+                  )}
                 </div>
                 <div>
                   <h3 className="text-xl font-semibold text-gray-800 mb-2">
@@ -77,20 +91,26 @@ const Certifications = () => {
                   </h3>
                   <p className="text-gray-600 mb-3">{cert.issuer}</p>
                   <div className="flex items-center text-sm text-gray-500 mb-4">
-                    <span>Issued: {cert.issueDate}</span>
+                    <span>{cert.dateLabel || "Issued"}: {cert.issueDate}</span>
                     <span className="mx-2">•</span>
                     <span>
                       {cert.expiryDate
                         ? `Expires: ${cert.expiryDate}`
-                        : "No Expiration"}
+                        : "No expiration listed"}
                     </span>
                   </div>
+                  {cert.trainingPeriod && (
+                    <p className="mb-2 text-sm text-gray-600">Training: {cert.trainingPeriod}</p>
+                  )}
+                  {cert.certificateNumber && (
+                    <p className="mb-4 text-sm text-gray-600">Certificate No.: {cert.certificateNumber}</p>
+                  )}
                   {cert.link && (
                     <a
                       href={cert.link}
                       className={`inline-flex items-center ${certificationColorClasses[cert.color].text} ${certificationColorClasses[cert.color].hoverText} transition-colors`}
                     >
-                      View Certificate
+                      {cert.linkLabel || "View Certificate"}
                       <ExternalLink className="w-4 h-4 ml-1" />
                     </a>
                   )}

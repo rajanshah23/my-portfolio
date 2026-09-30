@@ -23,7 +23,7 @@ const Footer = () => (
             <a href="https://github.com/rajanshah23" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile" className="text-gray-400 transition-colors hover:text-white focus:outline-none focus:ring-2 focus:ring-sky-400">
               <Github className="h-5 w-5" aria-hidden="true" />
             </a>
-            <a href="https://www.linkedin.com/in/rajan-kumar-gupta-16696532b/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile" className="text-gray-400 transition-colors hover:text-white focus:outline-none focus:ring-2 focus:ring-sky-400">
+            <a href="https://linkedin.com/in/rajankumar-gupta-16696532b" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile" className="text-gray-400 transition-colors hover:text-white focus:outline-none focus:ring-2 focus:ring-sky-400">
               <Linkedin className="h-5 w-5" aria-hidden="true" />
             </a>
             <a href="https://x.com/Rajansh26003523" target="_blank" rel="noopener noreferrer" aria-label="X profile" className="text-gray-400 transition-colors hover:text-white focus:outline-none focus:ring-2 focus:ring-sky-400">
@@ -65,7 +65,7 @@ const Footer = () => (
             </li>
             <li className="flex items-center gap-3 text-gray-400">
               <MapPin className="h-4 w-4 shrink-0 text-sky-400" aria-hidden="true" />
-              <span>Ramgram-3, Parasi, Nawalparasi</span>
+              <span>Parasi, Nawalparasi, Nepal</span>
             </li>
           </ul>
         </div>

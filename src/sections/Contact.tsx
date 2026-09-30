@@ -128,7 +128,7 @@ const Contact = () => {
                   <div>
                     <p className="text-gray-600">Location</p>
                     <p className="text-purple-600 font-medium">
-                      Ramgram-3, Parasi, Nawalparasi
+                      Parasi, Nawalparasi, Nepal
                     </p>
                   </div>
                 </div>
@@ -137,6 +137,7 @@ const Contact = () => {
                 <div className="flex space-x-6 pt-4">
                   <a
                     href="https://github.com/rajanshah23"
+                    aria-label="GitHub profile"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-gray-800 hover:text-black transition-transform transform hover:scale-110"
@@ -144,7 +145,8 @@ const Contact = () => {
                     <FaGithub className="w-7 h-7" />
                   </a>
                   <a
-                    href="https://www.linkedin.com/in/rajan-kumar-gupta-16696532b"
+                    href="https://linkedin.com/in/rajankumar-gupta-16696532b"
+                    aria-label="LinkedIn profile"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-blue-700 hover:text-blue-800 transition-transform transform hover:scale-110"

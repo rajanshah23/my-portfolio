@@ -149,7 +149,7 @@ const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
                     <figure key={index} className="space-y-2">
                       <img
                         src={screenshot}
-                        alt={`Screenshot ${index + 1}`}
+                        alt={project.screenshotCaptions?.[index] || `${project.title} screenshot`}
                         className="rounded-lg w-full"
                         onError={(event) => {
                           const figure = event.currentTarget.closest('figure');
@@ -159,12 +159,7 @@ const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
                         }}
                       />
                       <figcaption className="text-sm text-gray-500 text-center">
-                        {[
-                          'CI/CD Pipeline',
-                          'Kubernetes Pods',
-                          'WordPress Frontend',
-                          'Grafana Dashboard',
-                        ][index] || `Screenshot ${index + 1}`}
+                        {project.screenshotCaptions?.[index] || `${project.title} screenshot`}
                       </figcaption>
                     </figure>
                   ))}

@@ -60,7 +60,7 @@ const About = () => {
             <div className="space-y-6">
               <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
                 <h3 className="text-xl font-semibold mb-4 text-blue-600">
-                  Backend Engineer
+                  Backend Development
                 </h3>
                 <p className="text-gray-600 leading-relaxed">
                   I build reliable backend services, REST APIs, and application
@@ -73,14 +73,14 @@ const About = () => {
 
               <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
                 <h3 className="text-xl font-semibold mb-4 text-green-600">
-                  DevOps Engineer
+                  DevOps
                 </h3>
                 <p className="text-gray-600 leading-relaxed">
                   I automate deployment workflows and infrastructure using Linux,
                   Docker, GitHub Actions, Kubernetes, Helm, Prometheus,
                   Grafana, and Ansible. My focus is on building repeatable,
                   observable, and reliable delivery systems in real-world
-                  environments.
+                  through hands-on lab projects.
                 </p>
               </div>
 

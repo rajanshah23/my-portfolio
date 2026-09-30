@@ -13,6 +13,7 @@ const MobileNav = ({ isOpen, toggleMenu, activeSection }: MobileNavProps) => {
     { id: 'home', label: 'Home' },
     { id: 'about', label: 'About' },
     { id: 'skills', label: 'Skills' },
+    { id: 'experience', label: 'Experience & Training' },
     { id: 'projects', label: 'Projects' },
     { id: 'case-studies', label: 'DevOps Case Studies' },
     { id: 'contact', label: 'Contact' },

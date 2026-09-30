@@ -3,6 +3,7 @@ import Layout from "./components/Layout";
 import Home from "./sections/Home";
 import About from "./sections/About";
 import Skills from "./sections/Skills";
+import Experience from "./sections/Experience";
 import Projects from "./sections/Projects";
 import Certifications from "./sections/Certifications";
 import Education from "./sections/Education";
@@ -58,6 +59,7 @@ function App() {
         <Projects onProjectSelect={setSelectedProject} />
         <DevOpsCaseStudies />
         <DevOpsTimeline />
+        <Experience />
         <Certifications />
         <Education />
         <GitHubProjects />

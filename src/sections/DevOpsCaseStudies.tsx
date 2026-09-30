@@ -40,22 +40,22 @@ const DevOpsCaseStudies = () => {
           <CaseStudyCard
             title="WordPress DevOps CI/CD Pipeline"
             label="Implemented project"
-            summary="A practical DevOps implementation for deploying and automating a WordPress application in a resource-constrained local environment using AlmaLinux 9, Docker, GitHub Actions, Kubernetes (k3s), Helm, Prometheus, Grafana, and Ansible."
+            summary="Built and run in a personal lab environment. A WordPress deployment project using AlmaLinux 9, Docker, GitHub Actions, Kubernetes (k3s), Helm, Prometheus, Grafana, and Ansible."
             problem="Create a repeatable deployment workflow for WordPress while operating inside a minimal 2GB VM and keeping the environment manageable, observable, and automation-friendly."
-            architecture="Docker Compose supported local containerized development, a self-hosted GitHub Actions runner handled builds and image publishing, and k3s with Helm managed the Kubernetes deployment path."
+            architecture="Docker Compose runs WordPress and MySQL; a self-hosted GitHub Actions runner deploys the stack to k3s using kubectl manifests and a reusable Helm chart."
             tools={["AlmaLinux 9", "Docker", "Docker Compose", "GitHub Actions", "Kubernetes / k3s", "Helm", "Ansible", "Prometheus", "Grafana"]}
             implementation={[
-              "Provisioned the VM in Oracle VirtualBox with limited resources and a persistent storage layout.",
-              "Containerized the WordPress application and prepared the deployment stack for repeatable execution.",
-              "Configured a self-hosted GitHub Actions runner to automate builds and deployment workflows.",
-              "Deployed the application to k3s using Helm and Kubernetes manifests for service orchestration.",
-              "Added Prometheus and Grafana for runtime visibility and system monitoring.",
-              "Automated environment setup and networking tasks with Ansible."
+              "Built an AlmaLinux 9 VM in VirtualBox (2 GB RAM) with static IP networking, a non-root sudo user, and an XFS secondary disk mounted via /etc/fstab.",
+              "Containerized WordPress and MySQL with Docker Compose, using named volumes and a custom Docker network.",
+              "Configured a self-hosted GitHub Actions runner as a systemd service; the workflow deploys the stack on every push to main, with credentials in GitHub Secrets.",
+              "Deployed to k3s with kubectl and manifests (Namespace, Secret, ConfigMap, PV/PVC, Deployments, Services, Traefik Ingress) and a CPU-based HPA scaling WordPress from 1 to 3 replicas via Metrics Server.",
+              "Created a reusable Helm chart and installed kube-prometheus-stack for Prometheus and Grafana monitoring.",
+              "Wrote an Ansible playbook with roles (common, Docker, k3s, Helm, WordPress, monitoring) to automate setup on a fresh VM.",
             ]}
-            security="Firewall and networking rules were configured to limit exposed services and keep the deployment flow controlled within the self-hosted environment."
-            monitoring="Prometheus metrics and Grafana dashboards provided visibility into application and cluster health throughout the deployment workflow."
-            challenges="Operating Kubernetes, monitoring, and application workloads within a 2GB VM required careful planning around resource usage, storage, and networking."
-            result="The project produced a documented and repeatable DevOps workflow for WordPress, combining CI/CD automation, Kubernetes deployment, monitoring, and infrastructure configuration in one local environment."
+            security=""
+            monitoring=""
+            challenges=""
+            result=""
             github="https://github.com/rajanshah23/wordpress-docker-cicd"
             screenshots={["/screenshots/wordpress-cicd/pipeline.png", "/screenshots/wordpress-cicd/grafana.png"]}
             status="implemented"
